@@ -3,31 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Olimpiadas PERU - Inicio</title>
+    <title>OlimpiaPeru - Inicio</title>
     <link rel="stylesheet" href="style.css" />
     <meta
       name="description"
-      content="Sistema de gestión de Olimpiadas Internas UTP. Mantente informado sobre los deportes, posiciones y registros."
+      content="Sistema de gestión OlimpiaPeru. Mantente informado sobre los deportes, posiciones y registros."
     />
   </head>
   <body>
     <header>
       <div class="nav-container">
-        <a href="index.html" class="logo">Olimpiadas<span>PERU</span></a>
+        <a href="#inicio" class="logo">Olimpia<span>Peru</span></a>
         <nav>
           <ul>
-            <li><a href="index.html" class="active">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="registro.html">Registro</a></li>
-            <li><a href="posiciones.html">Posiciones</a></li>
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#registro">Registro</a></li>
+            <li><a href="#posiciones">Posiciones</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <h1>Bienvenido a Olimpiadas PERU</h1>
+      <!-- Inicio Section -->
+      <section id="inicio" class="hero section-spacing">
+        <h1>Bienvenido a OlimpiaPeru</h1>
         <p>
           Una plataforma integral diseñada para mejorar y automatizar el proceso
           de organización de olimpiadas internas de cualquier institución de
@@ -62,11 +63,181 @@
           </div>
         </div>
       </section>
+
+      <!-- Nosotros Section -->
+      <section id="nosotros" class="info-section section-spacing">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="info-blocks" style="margin-top: 1rem;">
+          <div class="info-card vision-mision">
+            <h2>Nuestra Visión</h2>
+            <p>
+              Ser la mejor empresa de gestión de eventos deportivos del Perú.
+              Dándole servicios de calidad a nuestros clientes.
+            </p>
+          </div>
+
+          <div class="info-card vision-mision">
+            <h2>Nuestra Misión</h2>
+            <p>
+              Somos una empresa con más de 10 años en el mercado, entregando un
+              servicio de calidad en todos los niveles de atención a los
+              clientes, tanto corporativos como particulares.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-card description" style="margin-top: 1.5rem;">
+          <h2>Descripción del Negocio</h2>
+          <p>
+            OlimpiaPeru ofrece los servicios de registro y gestión de un
+            deporte en distintas categorías. Los participantes (instituciones)
+            pueden solicitar la inscripción de sus equipos. El evento es creado
+            de acuerdo con un mínimo de participantes por deporte, al cual se
+            asigna un país (por ejemplo, a primer año se le asigna Brasil, a
+            quinto año se le asigna Francia).
+          </p>
+          <p>
+            Luego, cada equipo inscribe los deportes en los cuales participará y
+            lo mismo para la inscripción de sus participantes. Después de la
+            inscripción, debe haber un sorteo aleatorio para definir las series
+            por cada deporte, permitiendo registrar la fecha y hora de la
+            contienda.
+          </p>
+          <p>
+            Finalmente, se podrán ver los resultados de cada contienda, llevando
+            también un control estadístico de los puntos, goleadores,
+            encestadores, etc., que se realicen por deporte. Nuestra solución
+            está automatizada para que cualquier institución pueda organizar sus
+            olimpiadas internas de manera ágil y sencilla.
+          </p>
+        </div>
+      </section>
+
+      <!-- Registro Section -->
+      <section id="registro" class="form-container section-spacing">
+        <h2>Inscripción de Deportistas</h2>
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombres Completos:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Ej. Juan Pérez"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="codigo">Código de Alumno (UTP):</label>
+            <input
+              type="text"
+              id="codigo"
+              name="codigo"
+              placeholder="Ej. U20234567"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo Institucional:</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="ejemplo@utp.edu.pe"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="deporte">Deporte a Participar:</label>
+            <select id="deporte" name="deporte" required>
+              <option value="" disabled selected>
+                Selecciona una disciplina
+              </option>
+              <option value="futbol">Fútbol</option>
+              <option value="voley">Vóley</option>
+              <option value="basquet">Básquet</option>
+              <option value="atletismo">Atletismo</option>
+              <option value="ajedrez">Ajedrez</option>
+              <option value="natacion">Natación</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar Inscripción</button>
+        </form>
+      </section>
+
+      <!-- Posiciones Section -->
+      <section id="posiciones" class="table-container section-spacing">
+        <h2>Tabla de Posiciones - Fútbol Masculino</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Equipo (Facultad)</th>
+              <th>PJ</th>
+              <th>G</th>
+              <th>E</th>
+              <th>P</th>
+              <th>Pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ingeniería de Sistemas</td>
+              <td>5</td>
+              <td>4</td>
+              <td>1</td>
+              <td>0</td>
+              <td>13</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Administración de Empresas</td>
+              <td>5</td>
+              <td>3</td>
+              <td>1</td>
+              <td>1</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Arquitectura</td>
+              <td>5</td>
+              <td>2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Derecho</td>
+              <td>5</td>
+              <td>1</td>
+              <td>1</td>
+              <td>3</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Psicología</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+              <td>4</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <footer>
       <div class="footer-content">
-        <p>&copy; 2026 Universidad Tecnológica del Perú - Olimpiadas PERU.</p>
+        <p>&copy; 2026 Universidad Tecnológica del Perú - OlimpiaPeru.</p>
         <p>Contacto: deportes@utp.edu.pe | Teléfono: (01) 315 9600</p>
       </div>
     </footer>
