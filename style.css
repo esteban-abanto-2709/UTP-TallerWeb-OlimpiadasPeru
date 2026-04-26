@@ -1,12 +1,12 @@
 /* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #D50032; /* UTP Red */
+  --primary-color: #d50032; /* UTP Red */
   --secondary-color: #333333; /* Dark Gray */
-  --bg-color: #F8F9FA;
+  --bg-color: #f8f9fa;
   --text-color: #212529;
-  --white: #FFFFFF;
+  --white: #ffffff;
   --border-radius: 12px;
   --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -32,7 +32,7 @@ body {
 header {
   background-color: var(--secondary-color);
   padding: 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -76,7 +76,8 @@ nav a {
   border-radius: var(--border-radius);
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   background-color: var(--primary-color);
   color: var(--white);
   box-shadow: 0 4px 8px rgba(213, 0, 50, 0.3);
@@ -129,34 +130,56 @@ main {
   margin-right: auto;
 }
 
-/* Multimedia Section */
-.multimedia {
+/* Text Blocks Section */
+.info-blocks {
   display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
   flex-wrap: wrap;
 }
 
-.media-item {
+.info-card {
   flex: 1;
   min-width: 300px;
   background: var(--bg-color);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: var(--border-radius);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.media-item img, .media-item video {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  display: block;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  text-align: left;
+  border-top: 4px solid var(--primary-color);
   transition: var(--transition);
 }
 
-.media-item img:hover {
-  transform: scale(1.02);
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-card h2,
+.info-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.info-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.vision-mision {
+  border-top: 4px solid #333333;
+}
+
+.description p {
+  margin-bottom: 1rem;
 }
 
 /* Form Styles */
@@ -189,7 +212,8 @@ main {
   font-size: 0.95rem;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
   padding: 0.85rem;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -199,7 +223,8 @@ main {
   background-color: #fafafa;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--primary-color);
   background-color: var(--white);
@@ -251,7 +276,8 @@ table {
   border-spacing: 0;
 }
 
-th, td {
+th,
+td {
   padding: 1.2rem 1rem;
   text-align: left;
   border-bottom: 1px solid #eaeaea;
@@ -281,7 +307,7 @@ tbody tr {
 tbody tr:hover {
   background-color: #fff0f3;
   transform: scale(1.01);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   cursor: default;
   position: relative;
   z-index: 1;
@@ -316,17 +342,18 @@ footer p {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .hero h1 {
     font-size: 2.2rem;
   }
-  
-  .form-container, .table-container {
+
+  .form-container,
+  .table-container {
     padding: 1.5rem;
   }
 }
