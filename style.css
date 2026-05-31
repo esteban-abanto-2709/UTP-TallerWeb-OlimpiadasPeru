@@ -194,8 +194,10 @@ main {
   transition: transform 0.6s ease;   /* TRANSITION del deslizamiento */
 }
 
-/* Cada slide ocupa el 100% del ancho de la ventana */
+/* Cada slide ocupa el 100% del ancho de la ventana.
+   La imagen de fondo se define en el HTML (assets/img/<nombre>.jpg). */
 .slide {
+  position: relative;
   flex: 0 0 100%;
   height: 100%;
   display: flex;
@@ -207,38 +209,18 @@ main {
   background-position: center;
 }
 
-/* IMÁGENES DE FONDO por deporte (degradado oscuro encima para legibilidad) */
-.slide-futbol {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/soccer");
-}
-.slide-basquet {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/basketball");
-}
-.slide-voley {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/volleyball");
-}
-.slide-pingpong {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/table,tennis");
-}
-.slide-equipo {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/athlete");
-}
-.slide-estadio {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/stadium");
-}
-.slide-trofeo {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://loremflickr.com/1200/600/trophy");
+/* Capa oscura sobre la imagen para que el texto sea legible */
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Contenido del slide (entra con la ANIMACIÓN @keyframes) */
 .slide-content {
+  position: relative;            /* por encima de la capa oscura (.slide::before) */
+  z-index: 1;
   max-width: 600px;
   padding: 1.5rem;
   animation: fadeInUp 0.8s ease both;
@@ -390,36 +372,27 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Imagen dentro de "Sobre Nosotros" (responsiva) */
-.about-figure {
-  margin: 0 0 1.2rem;
-}
-
-.about-figure img {
-  width: 100%;
-  border-radius: var(--border-radius);
-}
-
-.about-figure figcaption {
-  margin-top: 0.5rem;
-  font-style: italic;              /* texto en cursiva */
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* 2 cartas (FLEXBOX): video de YouTube + descripción del negocio */
-.negocio-grid {
-  display: flex;                   /* === FLEXBOX === */
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.negocio-card {
-  flex: 1 1 320px;                 /* dos columnas que se apilan en pantallas pequeñas */
+/* 2 cards apiladas; cada una con texto a un lado y multimedia (16:9) al otro */
+.nosotros-cards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.nosotros-card {
+  display: flex;                   /* === FLEXBOX === texto | multimedia */
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;                 /* se apilan en pantallas pequeñas */
+}
+
+.nosotros-texto {
+  flex: 1 1 280px;                 /* mitad de texto */
+}
+
+.nosotros-media {
+  flex: 1 1 280px;                 /* mitad de multimedia */
 }
 
 /* ============================================================
@@ -648,23 +621,23 @@ tfoot td {
   margin-bottom: 1rem;
 }
 
-/* VIDEO EMBEBIDO RESPONSIVO (técnica 16:9 con padding) */
-.video-embed {
-  position: relative;
+/* Caja con relación de aspecto 16:9 (compartida por el video y la imagen) */
+.ratio-16-9 {
+  display: block;
   width: 100%;
-  padding-bottom: 56.25%;          /* 16:9 */
-  height: 0;
+  aspect-ratio: 16 / 9;            /* fuerza la proporción 16:9 */
   border-radius: var(--border-radius);
   overflow: hidden;
 }
 
-.video-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.ratio-16-9 iframe {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+img.ratio-16-9 {
+  object-fit: cover;               /* recorta sin deformar la imagen */
 }
 
 .media-card audio {

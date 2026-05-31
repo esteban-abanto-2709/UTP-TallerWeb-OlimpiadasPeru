@@ -70,7 +70,7 @@
         <!-- Pista de slides: FLEXBOX horizontal que se desplaza con transform -->
         <div class="slides">
           <!-- Slide 1 · Fútbol (lleva el h1 principal de la página) -->
-          <article class="slide slide-futbol">
+          <article class="slide slide-futbol" style="background-image: url('assets/img/futbol.jpg');">
             <div class="slide-content">
               <h1>Vive la pasión del <span>Fútbol</span></h1>
               <p>Demuestra tu garra en la cancha y representa a tu facultad.</p>
@@ -79,7 +79,7 @@
           </article>
 
           <!-- Slide 2 · Básquet -->
-          <article class="slide slide-basquet">
+          <article class="slide slide-basquet" style="background-image: url('assets/img/basquet.jpg');">
             <div class="slide-content">
               <h2>Eleva tu juego en el <span>Básquet</span></h2>
               <p>Salta, encesta y conquista lo más alto del podio.</p>
@@ -88,7 +88,7 @@
           </article>
 
           <!-- Slide 3 · Vóley -->
-          <article class="slide slide-voley">
+          <article class="slide slide-voley" style="background-image: url('assets/img/voley.jpg');">
             <div class="slide-content">
               <h2>Un equipo, un solo <span>objetivo</span></h2>
               <p>En el Vóley la fuerza está en el trabajo en conjunto.</p>
@@ -97,7 +97,7 @@
           </article>
 
           <!-- Slide 4 · Ping Pong -->
-          <article class="slide slide-pingpong">
+          <article class="slide slide-pingpong" style="background-image: url('assets/img/pingpong.jpg');">
             <div class="slide-content">
               <h2>Reflejos de <span>campeón</span></h2>
               <p>Precisión y velocidad en cada punto del Ping Pong.</p>
@@ -106,7 +106,7 @@
           </article>
 
           <!-- Slide 5 · Compite por tu facultad -->
-          <article class="slide slide-equipo">
+          <article class="slide slide-equipo" style="background-image: url('assets/img/equipo.jpg');">
             <div class="slide-content">
               <h2>Compite por tu <span>facultad</span></h2>
               <p>Forma tu equipo y deja todo en cada competencia.</p>
@@ -115,7 +115,7 @@
           </article>
 
           <!-- Slide 6 · Vive cada partido -->
-          <article class="slide slide-estadio">
+          <article class="slide slide-estadio" style="background-image: url('assets/img/estadio.jpg');">
             <div class="slide-content">
               <h2>Vive cada <span>partido</span></h2>
               <p>Sigue los resultados y la tabla de posiciones en vivo.</p>
@@ -124,7 +124,7 @@
           </article>
 
           <!-- Slide 7 · Inscríbete ahora -->
-          <article class="slide slide-trofeo">
+          <article class="slide slide-trofeo" style="background-image: url('assets/img/trofeo.jpg');">
             <div class="slide-content">
               <h2>¡Inscríbete <span>ahora</span>!</h2>
               <p>Sé parte del evento deportivo más grande de la UTP.</p>
@@ -157,65 +157,39 @@
     <section id="nosotros" class="info-section section-spacing">
       <h2 class="section-title">Sobre Nosotros</h2>
 
-      <div class="info-blocks" style="margin-top: 1rem;">
-        <div class="info-card vision-mision">
-          <h2><i class="fa-solid fa-eye"></i> Nuestra Visión</h2>
-          <p>
-            Ser la <strong>mejor empresa de gestión de eventos deportivos del Perú</strong>,
-            dándole servicios de calidad a nuestros clientes.
-          </p>
-        </div>
+      <!-- 2 CARDS: cada una con texto a un lado y multimedia (16:9) al otro (LAYOUT CON FLEXBOX) -->
+      <div class="nosotros-cards">
 
-        <div class="info-card vision-mision">
-          <h2><i class="fa-solid fa-flag"></i> Nuestra Misión</h2>
-          <p>
-            Somos una empresa con más de 10 años en el mercado, entregando un
-            servicio de calidad en todos los niveles de atención a los
-            clientes, tanto corporativos como particulares.
-          </p>
-        </div>
-      </div>
-
-      <!-- 2 CARTAS (LAYOUT CON FLEXBOX): video de YouTube + descripción del negocio -->
-      <div class="negocio-grid" style="margin-top: 1.5rem;">
-
-        <!-- Carta 1 · VIDEO EMBEBIDO de YouTube (responsivo 16:9) -->
-        <div class="info-card negocio-card">
-          <h2><i class="fa-brands fa-youtube"></i> El deporte en acción</h2>
-          <div class="video-embed">
+        <!-- Card 1 · VISIÓN: texto + video -->
+        <div class="info-card nosotros-card">
+          <div class="nosotros-texto">
+            <h2><i class="fa-solid fa-eye"></i> Nuestra Visión</h2>
+            <p>
+              Ser la <strong>mejor empresa de gestión de eventos deportivos del Perú</strong>,
+              dándole servicios de calidad a nuestros clientes.
+            </p>
+          </div>
+          <!-- VIDEO EMBEBIDO de YouTube en relación 16:9 -->
+          <div class="ratio-16-9 nosotros-media">
             <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video deportivo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
         </div>
 
-        <!-- Carta 2 · Descripción del negocio (incluye IMAGEN con atributo alt) -->
-        <div class="info-card description negocio-card">
-          <h2>Descripción del Negocio</h2>
-          <figure class="about-figure">
-            <img src="https://picsum.photos/id/1058/900/360" alt="Equipo de atletas en una competencia deportiva"
-              loading="lazy" />
-            <figcaption>Atletas durante una jornada de OlimpiaPeru.</figcaption>
-          </figure>
-          <p>
-            OlimpiaPeru ofrece los servicios de registro y gestión de un
-            deporte en distintas categorías. Los participantes (instituciones)
-            pueden solicitar la inscripción de sus equipos. El evento es creado
-            de acuerdo con un mínimo de participantes por deporte, al cual se
-            asigna un país (por ejemplo, a primer año se le asigna Brasil, a
-            quinto año se le asigna Francia).
-          </p>
-          <p>
-            Luego, cada equipo inscribe los deportes en los cuales participará y
-            lo mismo para la inscripción de sus participantes. Después de la
-            inscripción, debe haber un sorteo aleatorio para definir las series
-            por cada deporte, permitiendo registrar la fecha y hora de la contienda.
-          </p>
-          <p>
-            Finalmente, se podrán ver los resultados de cada contienda, llevando
-            también un control estadístico de los puntos, goleadores,
-            encestadores, etc., que se realicen por deporte.
-          </p>
+        <!-- Card 2 · MISIÓN: imagen + texto (lados invertidos) -->
+        <div class="info-card nosotros-card">
+          <!-- IMAGEN (<img> con alt) en relación 16:9 -->
+          <img class="ratio-16-9 nosotros-media" src="https://picsum.photos/id/1058/1280/720"
+            alt="Atletas durante una jornada de OlimpiaPeru" loading="lazy" />
+          <div class="nosotros-texto">
+            <h2><i class="fa-solid fa-flag"></i> Nuestra Misión</h2>
+            <p>
+              Somos una empresa con más de 10 años en el mercado, entregando un
+              servicio de calidad en todos los niveles de atención a los
+              clientes, tanto corporativos como particulares.
+            </p>
+          </div>
         </div>
       </div>
     </section>
