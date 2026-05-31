@@ -565,30 +565,8 @@ tfoot td {
 }
 
 /* ============================================================
-   MULTIMEDIA · audio + caja 16:9 compartida (video / imagen)
+   MULTIMEDIA · caja 16:9 compartida (video / imagen de Nosotros)
    ============================================================ */
-.media-blocks {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.media-card {
-  flex: 1;
-  min-width: 300px;
-  background: var(--white);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-.media-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-/* Relación de aspecto 16:9 (la usan el video y la imagen de Nosotros) */
 .ratio-16-9 {
   display: block;
   width: 100%;
@@ -607,9 +585,44 @@ img.ratio-16-9 {
   object-fit: cover;               /* recorta sin deformar */
 }
 
-.media-card audio {
-  width: 100%;
-  margin-bottom: 1rem;
+/* ============================================================
+   BOTÓN FLOTANTE · himno (position: fixed en la esquina)
+   ============================================================ */
+.himno-flotante {
+  position: fixed;                 /* siempre visible, anclado a la ventana */
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.9rem 1.3rem;
+  border-radius: 50px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.himno-flotante:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+/* Mientras suena: ícono girando (clase .playing añadida por JS) */
+.himno-flotante.playing i {
+  animation: girar 2.5s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ============================================================
@@ -750,5 +763,13 @@ footer p {
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Botón flotante: solo ícono (círculo) en móvil */
+  .himno-texto {
+    display: none;
+  }
+  .himno-flotante {
+    padding: 1rem;
   }
 }

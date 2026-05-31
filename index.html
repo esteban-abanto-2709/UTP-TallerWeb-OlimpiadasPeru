@@ -39,7 +39,6 @@
           <li><a href="#disciplinas">Disciplinas</a></li>
           <li><a href="#registro">Registro</a></li>
           <li><a href="#posiciones">Posiciones</a></li>
-          <li><a href="#multimedia">Multimedia</a></li>
         </ul>
       </nav>
     </div>
@@ -315,21 +314,6 @@
       </table>
     </section>
 
-    <!-- MULTIMEDIA · audio con controles -->
-    <section id="multimedia" class="section-spacing">
-      <h2 class="section-title">Multimedia</h2>
-
-      <div class="media-blocks">
-        <div class="media-card">
-          <h3><i class="fa-solid fa-music"></i> Himno deportivo</h3>
-          <audio controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-            Tu navegador no soporta el elemento de audio.
-          </audio>
-          <p>Escucha el himno oficial de las olimpiadas.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -343,6 +327,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- BOTÓN FLOTANTE · reproductor del himno (fijo en la esquina, controlado por JS) -->
+  <button id="himno-btn" class="himno-flotante" aria-label="Escuchar nuestro himno">
+    <i class="fa-solid fa-music"></i>
+    <span class="himno-texto">Escucha nuestro himno</span>
+  </button>
+  <audio id="himno-audio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 
   <script src="script.js"></script>
 </body>
