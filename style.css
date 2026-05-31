@@ -1,39 +1,33 @@
-/* ============================================================
-   STYLE.CSS · OlimpiaPeru (tema UTP)
-   ============================================================ */
+/* STYLE.CSS · OlimpiaPeru (tema UTP) */
 
-/* TIPOGRAFÍA CON GOOGLE FONTS (importada por CSS) */
+/* Google Fonts importada por CSS */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
-/* ------------------------------------------------------------
-   VARIABLES CSS (custom properties)
-   ------------------------------------------------------------ */
+/* Variables CSS (custom properties) */
 :root {
   --primary-color: #d50032;   /* Rojo UTP */
   --primary-dark: #b3002a;
-  --secondary-color: #333333; /* Gris oscuro */
+  --secondary-color: #333333;
   --bg-color: #f8f9fa;
   --text-color: #212529;
   --white: #ffffff;
   --border-radius: 12px;
   --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;   /* usada en todas las transitions */
+  --transition: all 0.3s ease;
 }
 
-/* SELECTOR UNIVERSAL (reset) */
+/* Reset (selector universal) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* SELECTOR DE ETIQUETA: html */
 html {
-  scroll-behavior: smooth;        /* desplazamiento suave entre anclas */
-  scroll-padding-top: 100px;      /* compensa el header fijo */
+  scroll-behavior: smooth;        /* scroll suave entre anclas */
+  scroll-padding-top: 100px;      /* compensa el header sticky */
 }
 
-/* SELECTOR DE ETIQUETA: body */
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
@@ -41,23 +35,21 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;              /* unidad relativa vh */
+  min-height: 100vh;
   overflow-x: hidden;            /* evita scroll horizontal por el slider full-bleed */
 }
 
-/* IMÁGENES RESPONSIVAS (regla global) */
+/* Imágenes responsivas (regla global) */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* ------------------------------------------------------------
-   ANIMACIÓN con @keyframes (aplicada al texto del hero)
-   ------------------------------------------------------------ */
+/* Animación con @keyframes (texto del hero) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);   /* TRANSFORM */
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -66,7 +58,7 @@ img {
 }
 
 /* ============================================================
-   HEADER & NAVEGACIÓN (FLEXBOX)
+   HEADER & NAV (Flexbox)
    ============================================================ */
 header {
   background-color: var(--secondary-color);
@@ -80,15 +72,14 @@ header {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;                   /* FLEXBOX */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* SELECTOR DE CLASE: logo */
 .logo {
   color: var(--white);
-  font-size: 1.75rem;              /* rem: unidad relativa */
+  font-size: 1.75rem;
   font-weight: 700;
   text-decoration: none;
   display: flex;
@@ -104,7 +95,7 @@ header {
 
 nav ul {
   list-style: none;
-  display: flex;                   /* FLEXBOX */
+  display: flex;
   gap: 1rem;
 }
 
@@ -112,12 +103,12 @@ nav a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
   padding: 0.6rem 1.2rem;
   border-radius: var(--border-radius);
 }
 
-/* PSEUDOCLASE :hover + clase activa */
+/* Pseudoclase :hover + clase activa */
 nav a:hover,
 nav a.active {
   background-color: var(--primary-color);
@@ -125,7 +116,7 @@ nav a.active {
   box-shadow: 0 4px 8px rgba(213, 0, 50, 0.3);
 }
 
-/* Checkbox + ícono del menú hamburguesa: ocultos en escritorio */
+/* Hamburguesa: oculta en escritorio */
 .menu-toggle,
 .menu-icon {
   display: none;
@@ -154,13 +145,12 @@ main {
 }
 
 /* ============================================================
-   INICIO · SLIDER / CARRUSEL (SELECTOR DE ID #inicio) · CSS + poco JS
+   INICIO · SLIDER (selector de ID #inicio)
    ============================================================ */
 .hero {
   position: relative;
   overflow: hidden;
-  /* Full-bleed: ocupa todo el ancho de la ventana y se pega al header
-     (el margin-top negativo anula el margen superior de <main>) */
+  /* Full-bleed: ocupa todo el ancho de la ventana y se pega al header */
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-top: -3rem;
@@ -179,23 +169,21 @@ main {
   z-index: 5;
 }
 
-/* Ventana visible del carrusel (más grande, basada en la altura de pantalla) */
 .slider {
   position: relative;
   width: 100%;
-  height: 88vh;                  /* unidad relativa vh */
+  height: 88vh;
   overflow: hidden;
 }
 
-/* Pista que contiene los slides en fila (FLEXBOX); se mueve con transform desde JS */
+/* Pista de slides en fila; se mueve con transform desde JS */
 .slides {
   display: flex;
   height: 100%;
-  transition: transform 0.6s ease;   /* TRANSITION del deslizamiento */
+  transition: transform 0.6s ease;
 }
 
-/* Cada slide ocupa el 100% del ancho de la ventana.
-   La imagen de fondo se define en el HTML (assets/img/<nombre>.jpg). */
+/* La imagen de fondo de cada slide se define en el HTML */
 .slide {
   position: relative;
   flex: 0 0 100%;
@@ -209,7 +197,7 @@ main {
   background-position: center;
 }
 
-/* Capa oscura sobre la imagen para que el texto sea legible */
+/* Capa oscura para que el texto sea legible */
 .slide::before {
   content: "";
   position: absolute;
@@ -217,9 +205,8 @@ main {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* Contenido del slide (entra con la ANIMACIÓN @keyframes) */
 .slide-content {
-  position: relative;            /* por encima de la capa oscura (.slide::before) */
+  position: relative;
   z-index: 1;
   max-width: 600px;
   padding: 1.5rem;
@@ -244,7 +231,6 @@ main {
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Botón de llamado a la acción (CTA) */
 .btn-cta {
   display: inline-block;
   background: var(--primary-color);
@@ -253,21 +239,20 @@ main {
   font-weight: 600;
   padding: 0.8rem 2rem;
   border-radius: 50px;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
 }
 
-/* PSEUDOCLASE :hover con TRANSFORM */
+/* :hover con transform */
 .btn-cta:hover {
   background: var(--primary-dark);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 6px 15px rgba(213, 0, 50, 0.4);
 }
 
-/* Flechas de navegación */
 .slider-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);       /* TRANSFORM para centrar verticalmente */
+  transform: translateY(-50%);
   width: 46px;
   height: 46px;
   border: none;
@@ -277,7 +262,7 @@ main {
   font-size: 1.4rem;
   cursor: pointer;
   z-index: 4;
-  transition: var(--transition);     /* TRANSITION */
+  transition: var(--transition);
 }
 
 .slider-arrow:hover {
@@ -291,7 +276,6 @@ main {
   right: 1rem;
 }
 
-/* Puntos indicadores */
 .slider-dots {
   position: absolute;
   bottom: 1.2rem;
@@ -310,7 +294,7 @@ main {
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  transition: var(--transition);     /* TRANSITION */
+  transition: var(--transition);
 }
 
 .dot.active {
@@ -318,15 +302,8 @@ main {
 }
 
 /* ============================================================
-   BLOQUES DE INFORMACIÓN · LAYOUT CON FLEXBOX
+   NOSOTROS · cards con Flexbox
    ============================================================ */
-.info-blocks {
-  display: flex;                   /* === FLEXBOX === */
-  gap: 1.5rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-
 .info-card {
   flex: 1;
   min-width: 300px;
@@ -336,10 +313,10 @@ main {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
   text-align: left;
   border-top: 4px solid var(--primary-color);
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
 }
 
-/* TRANSFORM en :hover */
+/* transform en :hover */
 .info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
@@ -364,14 +341,6 @@ main {
   gap: 2rem;
 }
 
-.vision-mision {
-  border-top: 4px solid var(--secondary-color);
-}
-
-.description p {
-  margin-bottom: 1rem;
-}
-
 /* 2 cards apiladas; cada una con texto a un lado y multimedia (16:9) al otro */
 .nosotros-cards {
   display: flex;
@@ -388,15 +357,15 @@ main {
 }
 
 .nosotros-texto {
-  flex: 1 1 280px;                 /* mitad de texto */
+  flex: 1 1 280px;
 }
 
 .nosotros-media {
-  flex: 1 1 280px;                 /* mitad de multimedia */
+  flex: 1 1 280px;
 }
 
 /* ============================================================
-   DISCIPLINAS · LAYOUT CON CSS GRID
+   DISCIPLINAS · CSS Grid
    ============================================================ */
 .grid-disciplinas {
   display: grid;                   /* === CSS GRID === */
@@ -411,11 +380,11 @@ main {
   border-radius: var(--border-radius);
   padding: 2rem 1rem;
   text-align: center;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
 }
 
 .sport-card:hover {
-  transform: scale(1.05);          /* TRANSFORM */
+  transform: scale(1.05);
   border-color: var(--primary-color);
   box-shadow: var(--box-shadow);
 }
@@ -437,7 +406,7 @@ main {
 }
 
 /* ============================================================
-   FORMULARIO (personalizado con CSS)
+   FORMULARIO
    ============================================================ */
 .form-container {
   background-color: var(--white);
@@ -470,7 +439,6 @@ main {
   font-size: 0.95rem;
 }
 
-/* Inputs, select y textarea estilizados */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
@@ -481,12 +449,12 @@ main {
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
   background-color: #fafafa;
   width: 100%;
 }
 
-/* PSEUDOCLASE :focus para resaltar el campo activo */
+/* Pseudoclase :focus para resaltar el campo activo */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -522,12 +490,12 @@ main {
   cursor: pointer;
   width: 100%;
   margin-top: 1rem;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
 }
 
 .submit-btn:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-3px);     /* TRANSFORM */
+  transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(213, 0, 50, 0.3);
 }
 
@@ -536,7 +504,7 @@ main {
 }
 
 /* ============================================================
-   TABLA · bordes + filas alternadas (pseudoclase :nth-child)
+   TABLA · bordes + filas alternadas (:nth-child)
    ============================================================ */
 .table-container {
   background-color: var(--white);
@@ -561,7 +529,7 @@ th,
 td {
   padding: 1rem;
   text-align: left;
-  border: 1px solid #e6e6e6;       /* BORDES de la tabla */
+  border: 1px solid #e6e6e6;
 }
 
 thead th {
@@ -574,7 +542,7 @@ thead th {
   text-align: center;
 }
 
-/* COLORES ALTERNADOS de filas */
+/* Filas alternadas */
 tbody tr:nth-child(even) {
   background-color: var(--bg-color);
 }
@@ -589,7 +557,6 @@ tbody td:first-child {
   text-align: center;
 }
 
-/* Pie de la tabla */
 tfoot td {
   background-color: var(--secondary-color);
   color: var(--white);
@@ -598,10 +565,10 @@ tfoot td {
 }
 
 /* ============================================================
-   MULTIMEDIA · video responsivo + audio (FLEXBOX) y galería (GRID)
+   MULTIMEDIA · audio + caja 16:9 compartida (video / imagen)
    ============================================================ */
 .media-blocks {
-  display: flex;                   /* FLEXBOX */
+  display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
   margin-top: 2rem;
@@ -621,11 +588,11 @@ tfoot td {
   margin-bottom: 1rem;
 }
 
-/* Caja con relación de aspecto 16:9 (compartida por el video y la imagen) */
+/* Relación de aspecto 16:9 (la usan el video y la imagen de Nosotros) */
 .ratio-16-9 {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;            /* fuerza la proporción 16:9 */
+  aspect-ratio: 16 / 9;
   border-radius: var(--border-radius);
   overflow: hidden;
 }
@@ -637,7 +604,7 @@ tfoot td {
 }
 
 img.ratio-16-9 {
-  object-fit: cover;               /* recorta sin deformar la imagen */
+  object-fit: cover;               /* recorta sin deformar */
 }
 
 .media-card audio {
@@ -646,7 +613,7 @@ img.ratio-16-9 {
 }
 
 /* ============================================================
-   FOOTER (FLEXBOX)
+   FOOTER (Flexbox)
    ============================================================ */
 footer {
   background-color: var(--secondary-color);
@@ -660,7 +627,7 @@ footer {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;                   /* FLEXBOX */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -672,7 +639,6 @@ footer p {
   margin: 0;
 }
 
-/* Íconos sociales (Font Awesome) */
 .social-icons {
   display: flex;
   gap: 0.7rem;
@@ -687,23 +653,23 @@ footer p {
   color: var(--white);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  transition: var(--transition);   /* TRANSITION */
+  transition: var(--transition);
 }
 
 .social-icons a:hover {
   background: var(--primary-color);
-  transform: translateY(-4px) rotate(8deg);   /* TRANSFORM */
+  transform: translateY(-4px) rotate(8deg);
 }
 
 /* ============================================================
-   DISEÑO RESPONSIVO · MEDIA QUERIES
+   RESPONSIVE · Media Queries
    Escritorio (base) · Tablet (<=1024px) · Móvil (<=768px)
    ============================================================ */
 
 /* TABLET */
 @media (max-width: 1024px) {
   .hero {
-    margin-top: -2rem;   /* mantiene el slider pegado al header en tablet */
+    margin-top: -2rem;
   }
   .slider {
     height: 70vh;
@@ -722,7 +688,6 @@ footer p {
 
 /* MÓVIL: menú hamburguesa + ajustes de tamaño */
 @media (max-width: 768px) {
-  /* Mostrar ícono hamburguesa */
   .menu-icon {
     display: block;
     color: var(--white);
@@ -735,7 +700,7 @@ footer p {
     flex-basis: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition);   /* TRANSITION del despliegue */
+    transition: max-height var(--transition);
   }
 
   nav ul {
@@ -745,7 +710,7 @@ footer p {
     padding-top: 1rem;
   }
 
-  /* El checkbox marcado despliega el menú (CSS puro, sin JS) */
+  /* El checkbox marcado despliega el menú (sin JS) */
   .menu-toggle:checked ~ nav {
     max-height: 400px;
   }

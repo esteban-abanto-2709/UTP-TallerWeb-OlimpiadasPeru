@@ -1,46 +1,37 @@
 <!DOCTYPE html>
-<!-- ============================================================
-     HTML BASE · Estructura básica HTML5: <html>, <head>, <body>
-     lang="es" indica el idioma del documento
-     ============================================================ -->
 <html lang="es">
 
 <head>
-  <!-- ===== META TAGS ESENCIALES ===== -->
-  <meta charset="UTF-8" /> <!-- Codificación de caracteres -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive: adapta al ancho del dispositivo -->
+  <!-- Meta tags: charset, viewport (responsive), description (SEO), author -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Sistema de gestión OlimpiaPeru. Mantente informado sobre los deportes, posiciones y registros." /> <!-- SEO -->
-  <meta name="author" content="Esteban Abanto" /> <!-- Autor del sitio -->
+    content="Sistema de gestión OlimpiaPeru. Mantente informado sobre los deportes, posiciones y registros." />
+  <meta name="author" content="Esteban Abanto" />
 
   <title>OlimpiaPeru - Inicio</title>
 
-  <!-- ===== ÍCONOS CON FONT AWESOME ===== -->
+  <!-- Font Awesome (íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- ===== ARCHIVO CSS EXTERNO VINCULADO ===== (Google Fonts se importa dentro de style.css) -->
+  <!-- CSS externo (Google Fonts se importa dentro de style.css) -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- ============================================================
-       ESTRUCTURA DE PÁGINA · HEADER con menú de navegación (<nav>)
-       Navegación por anclas + menú hamburguesa (CSS puro, solo móvil)
-       ============================================================ -->
+  <!-- HEADER + NAV: navegación por anclas + menú hamburguesa (CSS puro) -->
   <header id="top">
     <div class="nav-container">
-      <!-- Logo: enlace (<a>) al inicio -->
       <a href="#inicio" class="logo">
-        <i class="fa-solid fa-trophy"></i> <!-- Ícono Font Awesome -->
+        <i class="fa-solid fa-trophy"></i>
         Olimpia<span>Peru</span>
       </a>
 
-      <!-- Menú hamburguesa: checkbox + label (despliegue sin JavaScript) -->
+      <!-- Menú hamburguesa: checkbox + label, sin JavaScript -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
       <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
 
-      <!-- NAVEGACIÓN: enlaces (<a>) por anclas a cada sección -->
       <nav aria-label="Navegación principal">
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
@@ -54,22 +45,14 @@
     </div>
   </header>
 
-  <!-- ============================================================
-       CUERPO PRINCIPAL · <main>
-       ============================================================ -->
   <main>
 
-    <!-- ========================================================
-         INICIO (#inicio) · SLIDER / CARRUSEL (CSS + poco JS)
-         Cada slide: imagen de un deporte + mensaje + botón CTA.
-         Autoplay automático (~5s) + navegación manual (flechas y puntos).
-         La lógica de cambio está en script.js
-         ======================================================== -->
+    <!-- INICIO · SLIDER: autoplay + flechas + puntos (lógica en script.js) -->
     <section id="inicio" class="hero section-spacing">
       <div class="slider" id="slider">
-        <!-- Pista de slides: FLEXBOX horizontal que se desplaza con transform -->
+        <!-- Pista de slides: se desplaza con transform desde JS -->
         <div class="slides">
-          <!-- Slide 1 · Fútbol (lleva el h1 principal de la página) -->
+          <!-- El primer slide lleva el h1 principal de la página -->
           <article class="slide slide-futbol" style="background-image: url('assets/img/futbol.jpg');">
             <div class="slide-content">
               <h1>Vive la pasión del <span>Fútbol</span></h1>
@@ -78,7 +61,6 @@
             </div>
           </article>
 
-          <!-- Slide 2 · Básquet -->
           <article class="slide slide-basquet" style="background-image: url('assets/img/basquet.jpg');">
             <div class="slide-content">
               <h2>Eleva tu juego en el <span>Básquet</span></h2>
@@ -87,7 +69,6 @@
             </div>
           </article>
 
-          <!-- Slide 3 · Vóley -->
           <article class="slide slide-voley" style="background-image: url('assets/img/voley.jpg');">
             <div class="slide-content">
               <h2>Un equipo, un solo <span>objetivo</span></h2>
@@ -96,7 +77,6 @@
             </div>
           </article>
 
-          <!-- Slide 4 · Ping Pong -->
           <article class="slide slide-pingpong" style="background-image: url('assets/img/pingpong.jpg');">
             <div class="slide-content">
               <h2>Reflejos de <span>campeón</span></h2>
@@ -105,7 +85,6 @@
             </div>
           </article>
 
-          <!-- Slide 5 · Compite por tu facultad -->
           <article class="slide slide-equipo" style="background-image: url('assets/img/equipo.jpg');">
             <div class="slide-content">
               <h2>Compite por tu <span>facultad</span></h2>
@@ -114,7 +93,6 @@
             </div>
           </article>
 
-          <!-- Slide 6 · Vive cada partido -->
           <article class="slide slide-estadio" style="background-image: url('assets/img/estadio.jpg');">
             <div class="slide-content">
               <h2>Vive cada <span>partido</span></h2>
@@ -123,7 +101,6 @@
             </div>
           </article>
 
-          <!-- Slide 7 · Inscríbete ahora -->
           <article class="slide slide-trofeo" style="background-image: url('assets/img/trofeo.jpg');">
             <div class="slide-content">
               <h2>¡Inscríbete <span>ahora</span>!</h2>
@@ -133,11 +110,9 @@
           </article>
         </div>
 
-        <!-- Flechas de navegación manual -->
         <button class="slider-arrow prev" aria-label="Slide anterior">&#10094;</button>
         <button class="slider-arrow next" aria-label="Slide siguiente">&#10095;</button>
 
-        <!-- Puntos indicadores (navegación manual) -->
         <div class="slider-dots">
           <button class="dot active" aria-label="Ir al slide 1"></button>
           <button class="dot" aria-label="Ir al slide 2"></button>
@@ -150,17 +125,13 @@
       </div>
     </section>
 
-    <!-- ========================================================
-         NOSOTROS (#nosotros) · LAYOUT CON FLEXBOX
-         Incluye una IMAGEN con atributo alt (multimedia + responsiva)
-         ======================================================== -->
+    <!-- NOSOTROS · 2 cards (Visión / Misión) en FLEXBOX: texto a un lado, multimedia 16:9 al otro -->
     <section id="nosotros" class="info-section section-spacing">
       <h2 class="section-title">Sobre Nosotros</h2>
 
-      <!-- 2 CARDS: cada una con texto a un lado y multimedia (16:9) al otro (LAYOUT CON FLEXBOX) -->
       <div class="nosotros-cards">
 
-        <!-- Card 1 · VISIÓN: texto + video -->
+        <!-- Visión: texto + video de YouTube -->
         <div class="info-card nosotros-card">
           <div class="nosotros-texto">
             <h2><i class="fa-solid fa-eye"></i> Nuestra Visión</h2>
@@ -169,7 +140,6 @@
               dándole servicios de calidad a nuestros clientes.
             </p>
           </div>
-          <!-- VIDEO EMBEBIDO de YouTube en relación 16:9 -->
           <div class="ratio-16-9 nosotros-media">
             <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video deportivo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -177,9 +147,8 @@
           </div>
         </div>
 
-        <!-- Card 2 · MISIÓN: imagen + texto (lados invertidos) -->
+        <!-- Misión: imagen (<img> con alt) + texto, lados invertidos -->
         <div class="info-card nosotros-card">
-          <!-- IMAGEN (<img> con alt) en relación 16:9 -->
           <img class="ratio-16-9 nosotros-media" src="https://picsum.photos/id/1058/1280/720"
             alt="Atletas durante una jornada de OlimpiaPeru" loading="lazy" />
           <div class="nosotros-texto">
@@ -194,13 +163,10 @@
       </div>
     </section>
 
-    <!-- ========================================================
-         DISCIPLINAS (#disciplinas) · LAYOUT CON CSS GRID
-         ======================================================== -->
+    <!-- DISCIPLINAS · LAYOUT CON CSS GRID -->
     <section id="disciplinas" class="section-spacing">
       <h2 class="section-title">Disciplinas Deportivas</h2>
 
-      <!-- === Contenedor CSS GRID === -->
       <div class="grid-disciplinas">
         <article class="sport-card">
           <i class="fa-solid fa-futbol"></i>
@@ -225,40 +191,32 @@
       </div>
     </section>
 
-    <!-- ========================================================
-         REGISTRO (#registro)
-         FORMULARIO con action y method + todos los tipos de input
-         ======================================================== -->
+    <!-- REGISTRO · FORM (action/method) con todos los tipos de input -->
     <section id="registro" class="form-container section-spacing">
       <h2>Inscripción de Deportistas</h2>
-      <!-- FORM: atributos action y method -->
       <form action="#" method="POST">
 
-        <!-- INPUT TEXT -->
         <div class="form-group">
           <label for="nombre">Nombres Completos:</label>
           <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required />
         </div>
 
-        <!-- INPUT TEXT (código UTP) -->
         <div class="form-group">
           <label for="codigo">Código de Alumno (UTP):</label>
           <input type="text" id="codigo" name="codigo" placeholder="Ej. U20234567" required />
         </div>
 
-        <!-- INPUT EMAIL -->
         <div class="form-group">
           <label for="correo">Correo Institucional:</label>
           <input type="email" id="correo" name="correo" placeholder="ejemplo@utp.edu.pe" required />
         </div>
 
-        <!-- INPUT PASSWORD -->
         <div class="form-group">
           <label for="clave">Contraseña de acceso:</label>
           <input type="password" id="clave" name="clave" placeholder="••••••••" />
         </div>
 
-        <!-- INPUT RADIO -->
+        <!-- radio -->
         <fieldset class="form-group">
           <legend>Categoría:</legend>
           <label class="inline"><input type="radio" name="categoria" value="varones" /> Varones</label>
@@ -266,7 +224,7 @@
           <label class="inline"><input type="radio" name="categoria" value="mixto" /> Mixto</label>
         </fieldset>
 
-        <!-- SELECT (lista desplegable) -->
+        <!-- select -->
         <div class="form-group">
           <label for="deporte">Deporte a Participar:</label>
           <select id="deporte" name="deporte" required>
@@ -278,44 +236,36 @@
           </select>
         </div>
 
-        <!-- INPUT CHECKBOX -->
+        <!-- checkbox -->
         <fieldset class="form-group">
           <legend>Documentos que adjuntas:</legend>
           <label class="inline"><input type="checkbox" name="docs" value="dni" /> Copia de DNI</label>
           <label class="inline"><input type="checkbox" name="docs" value="ficha" /> Ficha médica</label>
         </fieldset>
 
-        <!-- TEXTAREA -->
+        <!-- textarea -->
         <div class="form-group">
           <label for="comentario">Comentarios adicionales:</label>
           <textarea id="comentario" name="comentario" rows="4" placeholder="Cuéntanos algo más..."></textarea>
         </div>
 
-        <!-- CHECKBOX de aceptación -->
         <div class="form-group">
           <label class="inline"><input type="checkbox" name="terminos" required /> Acepto los términos y
             condiciones.</label>
         </div>
 
-        <!-- BOTÓN SUBMIT -->
         <button type="submit" class="submit-btn">
           <i class="fa-solid fa-paper-plane"></i> Enviar Inscripción
         </button>
       </form>
     </section>
 
-    <!-- ========================================================
-         POSICIONES (#posiciones)
-         TABLA con thead, tbody, tfoot + colspan/rowspan
-         (bordes y filas alternadas definidos en CSS)
-         ======================================================== -->
+    <!-- POSICIONES · TABLA con thead, tbody, tfoot + colspan/rowspan -->
     <section id="posiciones" class="table-container section-spacing">
       <h2>Tabla de Posiciones - Fútbol Masculino</h2>
       <table>
-        <!-- Encabezado de la tabla -->
         <thead>
           <tr>
-            <!-- colspan: agrupa varias columnas bajo un título -->
             <th rowspan="2">Pos</th>
             <th rowspan="2">Equipo (Facultad)</th>
             <th colspan="4">Partidos</th>
@@ -329,7 +279,6 @@
           </tr>
         </thead>
 
-        <!-- Cuerpo de la tabla -->
         <tbody>
           <tr>
             <td>1</td>
@@ -358,24 +307,19 @@
           </tr>
         </tbody>
 
-        <!-- Pie de la tabla -->
         <tfoot>
           <tr>
-            <!-- colspan: la celda abarca todas las columnas -->
             <td colspan="7">Última actualización: <strong>fecha 5 · jornada finalizada</strong></td>
           </tr>
         </tfoot>
       </table>
     </section>
 
-    <!-- ========================================================
-         MULTIMEDIA (#multimedia) · AUDIO
-         ======================================================== -->
+    <!-- MULTIMEDIA · audio con controles -->
     <section id="multimedia" class="section-spacing">
       <h2 class="section-title">Multimedia</h2>
 
       <div class="media-blocks">
-        <!-- AUDIO con controles -->
         <div class="media-card">
           <h3><i class="fa-solid fa-music"></i> Himno deportivo</h3>
           <audio controls>
@@ -388,14 +332,10 @@
     </section>
   </main>
 
-  <!-- ============================================================
-       ESTRUCTURA DE PÁGINA · FOOTER
-       ============================================================ -->
   <footer>
     <div class="footer-content">
       <p>&copy; 2026 Universidad Tecnológica del Perú - OlimpiaPeru.</p>
       <p>Contacto: deportes@utp.edu.pe | Teléfono: (01) 315 9600</p>
-      <!-- Íconos sociales (Font Awesome) + enlaces -->
       <div class="social-icons">
         <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -404,7 +344,6 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT: lógica del slider (autoplay + flechas + puntos) -->
   <script src="script.js"></script>
 </body>
 

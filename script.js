@@ -1,20 +1,17 @@
-/* ============================================================
-   SCRIPT.JS · Slider del Inicio
-   Autoplay automático + navegación manual (flechas y puntos)
-   ============================================================ */
+/* SCRIPT.JS · Slider del Inicio: autoplay + flechas + puntos */
 (function () {
   const slider = document.getElementById("slider");
   if (!slider) return;
 
-  const track = slider.querySelector(".slides");          // pista de slides
-  const total = slider.querySelectorAll(".slide").length; // cantidad de slides
-  const dots = slider.querySelectorAll(".dot");           // puntos indicadores
-  const btnPrev = slider.querySelector(".prev");          // flecha anterior
-  const btnNext = slider.querySelector(".next");          // flecha siguiente
+  const track = slider.querySelector(".slides");
+  const total = slider.querySelectorAll(".slide").length;
+  const dots = slider.querySelectorAll(".dot");
+  const btnPrev = slider.querySelector(".prev");
+  const btnNext = slider.querySelector(".next");
 
-  const INTERVALO = 5000; // milisegundos del autoplay
-  let actual = 0;         // índice del slide visible
-  let timer = null;       // referencia del autoplay
+  const INTERVALO = 5000; // ms del autoplay
+  let actual = 0;
+  let timer = null;
 
   // Muestra el slide indicado (con ciclo infinito) y actualiza los puntos
   function mostrar(indice) {
@@ -25,7 +22,6 @@
     });
   }
 
-  // Inicia y reinicia el cambio automático
   function iniciarAutoplay() {
     timer = setInterval(function () {
       mostrar(actual + 1);
@@ -36,7 +32,7 @@
     iniciarAutoplay();
   }
 
-  // Navegación manual: al usarla, reinicia el autoplay
+  // Navegación manual: reinicia el autoplay al usarla
   btnNext.addEventListener("click", function () {
     mostrar(actual + 1);
     reiniciarAutoplay();
@@ -58,7 +54,6 @@
   });
   slider.addEventListener("mouseleave", iniciarAutoplay);
 
-  // Arranque
   mostrar(0);
   iniciarAutoplay();
 })();
