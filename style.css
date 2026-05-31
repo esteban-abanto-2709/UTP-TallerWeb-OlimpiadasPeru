@@ -24,7 +24,7 @@
 }
 
 html {
-  scroll-behavior: smooth;        /* scroll suave entre anclas */
+  scroll-behavior: smooth;
   scroll-padding-top: 100px;      /* compensa el header sticky */
 }
 
@@ -57,9 +57,7 @@ img {
   }
 }
 
-/* ============================================================
-   HEADER & NAV (Flexbox)
-   ============================================================ */
+/* ===== HEADER & NAV (Flexbox) ===== */
 header {
   background-color: var(--secondary-color);
   padding: 1rem 2rem;
@@ -122,9 +120,7 @@ nav a.active {
   display: none;
 }
 
-/* ============================================================
-   CONTENIDO PRINCIPAL
-   ============================================================ */
+/* ===== CONTENIDO PRINCIPAL ===== */
 main {
   flex: 1;
   max-width: 1200px;
@@ -144,9 +140,7 @@ main {
   margin-bottom: 1rem;
 }
 
-/* ============================================================
-   INICIO · SLIDER (selector de ID #inicio)
-   ============================================================ */
+/* ===== INICIO · SLIDER (selector de ID #inicio) ===== */
 .hero {
   position: relative;
   overflow: hidden;
@@ -176,7 +170,7 @@ main {
   overflow: hidden;
 }
 
-/* Pista de slides en fila; se mueve con transform desde JS */
+/* Pista de slides; se mueve con transform desde JS */
 .slides {
   display: flex;
   height: 100%;
@@ -242,7 +236,6 @@ main {
   transition: var(--transition);
 }
 
-/* :hover con transform */
 .btn-cta:hover {
   background: var(--primary-dark);
   transform: translateY(-3px) scale(1.05);
@@ -301,9 +294,7 @@ main {
   background: var(--white);
 }
 
-/* ============================================================
-   NOSOTROS · cards con Flexbox
-   ============================================================ */
+/* ===== NOSOTROS · cards con Flexbox ===== */
 .info-card {
   flex: 1;
   min-width: 300px;
@@ -316,7 +307,6 @@ main {
   transition: var(--transition);
 }
 
-/* transform en :hover */
 .info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
@@ -350,10 +340,10 @@ main {
 }
 
 .nosotros-card {
-  display: flex;                   /* === FLEXBOX === texto | multimedia */
+  display: flex;                   /* FLEXBOX: texto | multimedia */
   gap: 1.5rem;
   align-items: center;
-  flex-wrap: wrap;                 /* se apilan en pantallas pequeñas */
+  flex-wrap: wrap;
 }
 
 .nosotros-texto {
@@ -364,11 +354,9 @@ main {
   flex: 1 1 280px;
 }
 
-/* ============================================================
-   DISCIPLINAS · CSS Grid
-   ============================================================ */
+/* ===== DISCIPLINAS · CSS Grid ===== */
 .grid-disciplinas {
-  display: grid;                   /* === CSS GRID === */
+  display: grid;                   /* CSS GRID */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
@@ -405,9 +393,7 @@ main {
   font-size: 0.9rem;
 }
 
-/* ============================================================
-   FORMULARIO
-   ============================================================ */
+/* ===== FORMULARIO ===== */
 .form-container {
   background-color: var(--white);
   padding: 3rem;
@@ -454,7 +440,7 @@ main {
   width: 100%;
 }
 
-/* Pseudoclase :focus para resaltar el campo activo */
+/* Pseudoclase :focus */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -503,9 +489,7 @@ main {
   transform: translateY(0);
 }
 
-/* ============================================================
-   TABLA · bordes + filas alternadas (:nth-child)
-   ============================================================ */
+/* ===== TABLA · bordes + filas alternadas (:nth-child) ===== */
 .table-container {
   background-color: var(--white);
   padding: 2.5rem;
@@ -564,9 +548,7 @@ tfoot td {
   font-weight: 500;
 }
 
-/* ============================================================
-   MULTIMEDIA · caja 16:9 compartida (video / imagen de Nosotros)
-   ============================================================ */
+/* ===== MULTIMEDIA · caja 16:9 compartida (video / imagen de Nosotros) ===== */
 .ratio-16-9 {
   display: block;
   width: 100%;
@@ -585,11 +567,9 @@ img.ratio-16-9 {
   object-fit: cover;               /* recorta sin deformar */
 }
 
-/* ============================================================
-   BOTÓN FLOTANTE · himno (position: fixed en la esquina)
-   ============================================================ */
+/* ===== BOTÓN FLOTANTE · himno (position: fixed en la esquina) ===== */
 .himno-flotante {
-  position: fixed;                 /* siempre visible, anclado a la ventana */
+  position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 200;
@@ -625,9 +605,7 @@ img.ratio-16-9 {
   }
 }
 
-/* ============================================================
-   FOOTER (Flexbox)
-   ============================================================ */
+/* ===== FOOTER (Flexbox) ===== */
 footer {
   background-color: var(--secondary-color);
   color: var(--white);
@@ -674,12 +652,7 @@ footer p {
   transform: translateY(-4px) rotate(8deg);
 }
 
-/* ============================================================
-   RESPONSIVE · Media Queries
-   Escritorio (base) · Tablet (<=1024px) · Móvil (<=768px)
-   ============================================================ */
-
-/* TABLET */
+/* ===== RESPONSIVE · Media Queries (base escritorio · tablet ≤1024px · móvil ≤768px) ===== */
 @media (max-width: 1024px) {
   .hero {
     margin-top: -2rem;
@@ -699,7 +672,6 @@ footer p {
   }
 }
 
-/* MÓVIL: menú hamburguesa + ajustes de tamaño */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -708,7 +680,6 @@ footer p {
     cursor: pointer;
   }
 
-  /* Menú desplegable oculto por defecto */
   nav {
     flex-basis: 100%;
     max-height: 0;
