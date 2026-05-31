@@ -1,27 +1,39 @@
-/* style.css */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* ============================================================
+   STYLE.CSS · OlimpiaPeru (tema UTP)
+   ============================================================ */
 
+/* TIPOGRAFÍA CON GOOGLE FONTS (importada por CSS) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ------------------------------------------------------------
+   VARIABLES CSS (custom properties)
+   ------------------------------------------------------------ */
 :root {
-  --primary-color: #d50032; /* UTP Red */
-  --secondary-color: #333333; /* Dark Gray */
+  --primary-color: #d50032;   /* Rojo UTP */
+  --primary-dark: #b3002a;
+  --secondary-color: #333333; /* Gris oscuro */
   --bg-color: #f8f9fa;
   --text-color: #212529;
   --white: #ffffff;
   --border-radius: 12px;
   --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;
+  --transition: all 0.3s ease;   /* usada en todas las transitions */
 }
 
+/* SELECTOR UNIVERSAL (reset) */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* SELECTOR DE ETIQUETA: html */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-behavior: smooth;        /* desplazamiento suave entre anclas */
+  scroll-padding-top: 100px;      /* compensa el header fijo */
 }
 
+/* SELECTOR DE ETIQUETA: body */
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
@@ -29,10 +41,33 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh;              /* unidad relativa vh */
+  overflow-x: hidden;            /* evita scroll horizontal por el slider full-bleed */
 }
 
-/* Header & Navigation */
+/* IMÁGENES RESPONSIVAS (regla global) */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   ANIMACIÓN con @keyframes (aplicada al texto del hero)
+   ------------------------------------------------------------ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);   /* TRANSFORM */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   HEADER & NAVEGACIÓN (FLEXBOX)
+   ============================================================ */
 header {
   background-color: var(--secondary-color);
   padding: 1rem 2rem;
@@ -45,14 +80,15 @@ header {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  display: flex;                   /* FLEXBOX */
   justify-content: space-between;
   align-items: center;
 }
 
+/* SELECTOR DE CLASE: logo */
 .logo {
   color: var(--white);
-  font-size: 1.75rem;
+  font-size: 1.75rem;              /* rem: unidad relativa */
   font-weight: 700;
   text-decoration: none;
   display: flex;
@@ -61,13 +97,14 @@ header {
   letter-spacing: -0.5px;
 }
 
+.logo i,
 .logo span {
   color: var(--primary-color);
 }
 
 nav ul {
   list-style: none;
-  display: flex;
+  display: flex;                   /* FLEXBOX */
   gap: 1rem;
 }
 
@@ -75,11 +112,12 @@ nav a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  transition: var(--transition);
+  transition: var(--transition);   /* TRANSITION */
   padding: 0.6rem 1.2rem;
   border-radius: var(--border-radius);
 }
 
+/* PSEUDOCLASE :hover + clase activa */
 nav a:hover,
 nav a.active {
   background-color: var(--primary-color);
@@ -87,7 +125,15 @@ nav a.active {
   box-shadow: 0 4px 8px rgba(213, 0, 50, 0.3);
 }
 
-/* Main Content */
+/* Checkbox + ícono del menú hamburguesa: ocultos en escritorio */
+.menu-toggle,
+.menu-icon {
+  display: none;
+}
+
+/* ============================================================
+   CONTENIDO PRINCIPAL
+   ============================================================ */
 main {
   flex: 1;
   max-width: 1200px;
@@ -107,18 +153,21 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Hero Section */
+/* ============================================================
+   INICIO · SLIDER / CARRUSEL (SELECTOR DE ID #inicio) · CSS + poco JS
+   ============================================================ */
 .hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background-color: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
+  /* Full-bleed: ocupa todo el ancho de la ventana y se pega al header
+     (el margin-top negativo anula el margen superior de <main>) */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -3rem;
+  margin-bottom: 2rem;
 }
 
+/* Barra superior decorativa (pseudo-elemento) */
 .hero::before {
   content: "";
   position: absolute;
@@ -127,27 +176,170 @@ main {
   width: 100%;
   height: 6px;
   background: linear-gradient(90deg, var(--primary-color), #ff4d6d);
+  z-index: 5;
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
+/* Ventana visible del carrusel (más grande, basada en la altura de pantalla) */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 88vh;                  /* unidad relativa vh */
+  overflow: hidden;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 3rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Text Blocks Section */
-.info-blocks {
+/* Pista que contiene los slides en fila (FLEXBOX); se mueve con transform desde JS */
+.slides {
   display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;   /* TRANSITION del deslizamiento */
+}
+
+/* Cada slide ocupa el 100% del ancho de la ventana */
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  background-size: cover;
+  background-position: center;
+}
+
+/* IMÁGENES DE FONDO por deporte (degradado oscuro encima para legibilidad) */
+.slide-futbol {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/soccer");
+}
+.slide-basquet {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/basketball");
+}
+.slide-voley {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/volleyball");
+}
+.slide-pingpong {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/table,tennis");
+}
+.slide-equipo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/athlete");
+}
+.slide-estadio {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/stadium");
+}
+.slide-trofeo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://loremflickr.com/1200/600/trophy");
+}
+
+/* Contenido del slide (entra con la ANIMACIÓN @keyframes) */
+.slide-content {
+  max-width: 600px;
+  padding: 1.5rem;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.slide-content h1,
+.slide-content h2 {
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content h1 span,
+.slide-content h2 span {
+  color: var(--primary-color);
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.6rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón de llamado a la acción (CTA) */
+.btn-cta {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: var(--transition);   /* TRANSITION */
+}
+
+/* PSEUDOCLASE :hover con TRANSFORM */
+.btn-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(213, 0, 50, 0.4);
+}
+
+/* Flechas de navegación */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);       /* TRANSFORM para centrar verticalmente */
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 4;
+  transition: var(--transition);     /* TRANSITION */
+}
+
+.slider-arrow:hover {
+  background: var(--primary-color);
+}
+
+.slider-arrow.prev {
+  left: 1rem;
+}
+.slider-arrow.next {
+  right: 1rem;
+}
+
+/* Puntos indicadores */
+.slider-dots {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 4;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition);     /* TRANSITION */
+}
+
+.dot.active {
+  background: var(--white);
+}
+
+/* ============================================================
+   BLOQUES DE INFORMACIÓN · LAYOUT CON FLEXBOX
+   ============================================================ */
+.info-blocks {
+  display: flex;                   /* === FLEXBOX === */
   gap: 1.5rem;
   margin-top: 3rem;
   flex-wrap: wrap;
@@ -162,9 +354,10 @@ main {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
   text-align: left;
   border-top: 4px solid var(--primary-color);
-  transition: var(--transition);
+  transition: var(--transition);   /* TRANSITION */
 }
 
+/* TRANSFORM en :hover */
 .info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
@@ -190,14 +383,89 @@ main {
 }
 
 .vision-mision {
-  border-top: 4px solid #333333;
+  border-top: 4px solid var(--secondary-color);
 }
 
 .description p {
   margin-bottom: 1rem;
 }
 
-/* Form Styles */
+/* Imagen dentro de "Sobre Nosotros" (responsiva) */
+.about-figure {
+  margin: 0 0 1.2rem;
+}
+
+.about-figure img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.about-figure figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;              /* texto en cursiva */
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* 2 cartas (FLEXBOX): video de YouTube + descripción del negocio */
+.negocio-grid {
+  display: flex;                   /* === FLEXBOX === */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.negocio-card {
+  flex: 1 1 320px;                 /* dos columnas que se apilan en pantallas pequeñas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ============================================================
+   DISCIPLINAS · LAYOUT CON CSS GRID
+   ============================================================ */
+.grid-disciplinas {
+  display: grid;                   /* === CSS GRID === */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sport-card {
+  background: var(--white);
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: var(--transition);   /* TRANSITION */
+}
+
+.sport-card:hover {
+  transform: scale(1.05);          /* TRANSFORM */
+  border-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.sport-card i {
+  font-size: 2.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+.sport-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.3rem;
+}
+
+.sport-card p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   FORMULARIO (personalizado con CSS)
+   ============================================================ */
 .form-container {
   background-color: var(--white);
   padding: 3rem;
@@ -218,32 +486,56 @@ main {
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
+  border: none;                    /* limpia el borde de <fieldset> */
 }
 
-.form-group label {
+.form-group label,
+.form-group legend {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--secondary-color);
   font-size: 0.95rem;
 }
 
-.form-group input,
-.form-group select {
+/* Inputs, select y textarea estilizados */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
   padding: 0.85rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
-  transition: var(--transition);
+  transition: var(--transition);   /* TRANSITION */
   background-color: #fafafa;
+  width: 100%;
 }
 
+/* PSEUDOCLASE :focus para resaltar el campo activo */
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
   background-color: var(--white);
   box-shadow: 0 0 0 3px rgba(213, 0, 50, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Etiquetas en línea para radios y checkboxes */
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-direction: row;
+  font-weight: 400;
+  margin-right: 1.2rem;
+  cursor: pointer;
 }
 
 .submit-btn {
@@ -257,12 +549,12 @@ main {
   cursor: pointer;
   width: 100%;
   margin-top: 1rem;
-  transition: var(--transition);
+  transition: var(--transition);   /* TRANSITION */
 }
 
 .submit-btn:hover {
-  background-color: #b3002a;
-  transform: translateY(-3px);
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);     /* TRANSFORM */
   box-shadow: 0 6px 15px rgba(213, 0, 50, 0.3);
 }
 
@@ -270,13 +562,15 @@ main {
   transform: translateY(0);
 }
 
-/* Table Styles */
+/* ============================================================
+   TABLA · bordes + filas alternadas (pseudoclase :nth-child)
+   ============================================================ */
 .table-container {
   background-color: var(--white);
   padding: 2.5rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  overflow-x: auto;
+  overflow-x: auto;                /* tabla desplazable en móvil */
 }
 
 .table-container h2 {
@@ -287,61 +581,104 @@ main {
 
 table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 1.2rem 1rem;
+  padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid #eaeaea;
+  border: 1px solid #e6e6e6;       /* BORDES de la tabla */
 }
 
-th {
+thead th {
   background-color: var(--secondary-color);
   color: var(--white);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
+  text-align: center;
 }
 
-th:first-child {
-  border-top-left-radius: 8px;
-}
-
-th:last-child {
-  border-top-right-radius: 8px;
-}
-
-tbody tr {
-  transition: var(--transition);
+/* COLORES ALTERNADOS de filas */
+tbody tr:nth-child(even) {
+  background-color: var(--bg-color);
 }
 
 tbody tr:hover {
   background-color: #fff0f3;
-  transform: scale(1.01);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  cursor: default;
-  position: relative;
-  z-index: 1;
-}
-
-tbody tr:hover td {
-  border-bottom-color: transparent;
 }
 
 tbody td:first-child {
   font-weight: 700;
   color: var(--primary-color);
+  text-align: center;
 }
 
-/* Footer */
+/* Pie de la tabla */
+tfoot td {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ============================================================
+   MULTIMEDIA · video responsivo + audio (FLEXBOX) y galería (GRID)
+   ============================================================ */
+.media-blocks {
+  display: flex;                   /* FLEXBOX */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.media-card {
+  flex: 1;
+  min-width: 300px;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.media-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* VIDEO EMBEBIDO RESPONSIVO (técnica 16:9 con padding) */
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;          /* 16:9 */
+  height: 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-card audio {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   FOOTER (FLEXBOX)
+   ============================================================ */
 footer {
   background-color: var(--secondary-color);
   color: var(--white);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   margin-top: auto;
   font-size: 0.9rem;
   border-top: 3px solid var(--primary-color);
@@ -350,7 +687,7 @@ footer {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  display: flex;                   /* FLEXBOX */
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -362,20 +699,109 @@ footer p {
   margin: 0;
 }
 
-/* Responsive */
+/* Íconos sociales (Font Awesome) */
+.social-icons {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.social-icons a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: var(--transition);   /* TRANSITION */
+}
+
+.social-icons a:hover {
+  background: var(--primary-color);
+  transform: translateY(-4px) rotate(8deg);   /* TRANSFORM */
+}
+
+/* ============================================================
+   DISEÑO RESPONSIVO · MEDIA QUERIES
+   Escritorio (base) · Tablet (<=1024px) · Móvil (<=768px)
+   ============================================================ */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .hero {
+    margin-top: -2rem;   /* mantiene el slider pegado al header en tablet */
+  }
+  .slider {
+    height: 70vh;
+  }
+  .slide-content h1,
+  .slide-content h2 {
+    font-size: 2.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  main {
+    margin: 2rem auto;
+  }
+}
+
+/* MÓVIL: menú hamburguesa + ajustes de tamaño */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 1.5rem;
+  /* Mostrar ícono hamburguesa */
+  .menu-icon {
+    display: block;
+    color: var(--white);
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  /* Menú desplegable oculto por defecto */
+  nav {
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);   /* TRANSITION del despliegue */
   }
 
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3rem;
+    padding-top: 1rem;
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
+  /* El checkbox marcado despliega el menú (CSS puro, sin JS) */
+  .menu-toggle:checked ~ nav {
+    max-height: 400px;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .slider {
+    height: 60vh;
+  }
+
+  .slide-content h1,
+  .slide-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .slide-content p {
+    font-size: 0.95rem;
+  }
+
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .info-card {
+    min-width: 100%;
   }
 
   .form-container,

@@ -1,93 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- ============================================================
+     HTML BASE · Estructura básica HTML5: <html>, <head>, <body>
+     lang="es" indica el idioma del documento
+     ============================================================ -->
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OlimpiaPeru - Inicio</title>
-    <link rel="stylesheet" href="style.css" />
-    <meta
-      name="description"
-      content="Sistema de gestión OlimpiaPeru. Mantente informado sobre los deportes, posiciones y registros."
-    />
-  </head>
-  <body>
-    <header>
-      <div class="nav-container">
-        <a href="#inicio" class="logo">Olimpia<span>Peru</span></a>
-        <nav>
-          <ul>
-            <li><a href="#inicio" class="active">Inicio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#registro">Registro</a></li>
-            <li><a href="#posiciones">Posiciones</a></li>
-          </ul>
-        </nav>
+
+<head>
+  <!-- ===== META TAGS ESENCIALES ===== -->
+  <meta charset="UTF-8" /> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive: adapta al ancho del dispositivo -->
+  <meta name="description"
+    content="Sistema de gestión OlimpiaPeru. Mantente informado sobre los deportes, posiciones y registros." /> <!-- SEO -->
+  <meta name="author" content="Esteban Abanto" /> <!-- Autor del sitio -->
+
+  <title>OlimpiaPeru - Inicio</title>
+
+  <!-- ===== ÍCONOS CON FONT AWESOME ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- ===== ARCHIVO CSS EXTERNO VINCULADO ===== (Google Fonts se importa dentro de style.css) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       ESTRUCTURA DE PÁGINA · HEADER con menú de navegación (<nav>)
+       Navegación por anclas + menú hamburguesa (CSS puro, solo móvil)
+       ============================================================ -->
+  <header id="top">
+    <div class="nav-container">
+      <!-- Logo: enlace (<a>) al inicio -->
+      <a href="#inicio" class="logo">
+        <i class="fa-solid fa-trophy"></i> <!-- Ícono Font Awesome -->
+        Olimpia<span>Peru</span>
+      </a>
+
+      <!-- Menú hamburguesa: checkbox + label (despliegue sin JavaScript) -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+      <!-- NAVEGACIÓN: enlaces (<a>) por anclas a cada sección -->
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#registro">Registro</a></li>
+          <li><a href="#posiciones">Posiciones</a></li>
+          <li><a href="#multimedia">Multimedia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CUERPO PRINCIPAL · <main>
+       ============================================================ -->
+  <main>
+
+    <!-- ========================================================
+         INICIO (#inicio) · SLIDER / CARRUSEL (CSS + poco JS)
+         Cada slide: imagen de un deporte + mensaje + botón CTA.
+         Autoplay automático (~5s) + navegación manual (flechas y puntos).
+         La lógica de cambio está en script.js
+         ======================================================== -->
+    <section id="inicio" class="hero section-spacing">
+      <div class="slider" id="slider">
+        <!-- Pista de slides: FLEXBOX horizontal que se desplaza con transform -->
+        <div class="slides">
+          <!-- Slide 1 · Fútbol (lleva el h1 principal de la página) -->
+          <article class="slide slide-futbol">
+            <div class="slide-content">
+              <h1>Vive la pasión del <span>Fútbol</span></h1>
+              <p>Demuestra tu garra en la cancha y representa a tu facultad.</p>
+              <a href="#registro" class="btn-cta"><i class="fa-solid fa-pen-to-square"></i> Inscríbete</a>
+            </div>
+          </article>
+
+          <!-- Slide 2 · Básquet -->
+          <article class="slide slide-basquet">
+            <div class="slide-content">
+              <h2>Eleva tu juego en el <span>Básquet</span></h2>
+              <p>Salta, encesta y conquista lo más alto del podio.</p>
+              <a href="#registro" class="btn-cta"><i class="fa-solid fa-pen-to-square"></i> Inscríbete</a>
+            </div>
+          </article>
+
+          <!-- Slide 3 · Vóley -->
+          <article class="slide slide-voley">
+            <div class="slide-content">
+              <h2>Un equipo, un solo <span>objetivo</span></h2>
+              <p>En el Vóley la fuerza está en el trabajo en conjunto.</p>
+              <a href="#disciplinas" class="btn-cta"><i class="fa-solid fa-list"></i> Ver disciplinas</a>
+            </div>
+          </article>
+
+          <!-- Slide 4 · Ping Pong -->
+          <article class="slide slide-pingpong">
+            <div class="slide-content">
+              <h2>Reflejos de <span>campeón</span></h2>
+              <p>Precisión y velocidad en cada punto del Ping Pong.</p>
+              <a href="#registro" class="btn-cta"><i class="fa-solid fa-pen-to-square"></i> Inscríbete</a>
+            </div>
+          </article>
+
+          <!-- Slide 5 · Compite por tu facultad -->
+          <article class="slide slide-equipo">
+            <div class="slide-content">
+              <h2>Compite por tu <span>facultad</span></h2>
+              <p>Forma tu equipo y deja todo en cada competencia.</p>
+              <a href="#registro" class="btn-cta"><i class="fa-solid fa-pen-to-square"></i> Inscríbete</a>
+            </div>
+          </article>
+
+          <!-- Slide 6 · Vive cada partido -->
+          <article class="slide slide-estadio">
+            <div class="slide-content">
+              <h2>Vive cada <span>partido</span></h2>
+              <p>Sigue los resultados y la tabla de posiciones en vivo.</p>
+              <a href="#posiciones" class="btn-cta"><i class="fa-solid fa-ranking-star"></i> Ver posiciones</a>
+            </div>
+          </article>
+
+          <!-- Slide 7 · Inscríbete ahora -->
+          <article class="slide slide-trofeo">
+            <div class="slide-content">
+              <h2>¡Inscríbete <span>ahora</span>!</h2>
+              <p>Sé parte del evento deportivo más grande de la UTP.</p>
+              <a href="#registro" class="btn-cta"><i class="fa-solid fa-pen-to-square"></i> Inscríbete</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Flechas de navegación manual -->
+        <button class="slider-arrow prev" aria-label="Slide anterior">&#10094;</button>
+        <button class="slider-arrow next" aria-label="Slide siguiente">&#10095;</button>
+
+        <!-- Puntos indicadores (navegación manual) -->
+        <div class="slider-dots">
+          <button class="dot active" aria-label="Ir al slide 1"></button>
+          <button class="dot" aria-label="Ir al slide 2"></button>
+          <button class="dot" aria-label="Ir al slide 3"></button>
+          <button class="dot" aria-label="Ir al slide 4"></button>
+          <button class="dot" aria-label="Ir al slide 5"></button>
+          <button class="dot" aria-label="Ir al slide 6"></button>
+          <button class="dot" aria-label="Ir al slide 7"></button>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Inicio Section -->
-      <section id="inicio" class="hero section-spacing">
-        <h1>Bienvenido a OlimpiaPeru</h1>
-        <p>
-          Una plataforma integral diseñada para mejorar y automatizar el proceso
-          de organización de olimpiadas internas de cualquier institución de
-          manera eficiente y moderna.
-        </p>
+    <!-- ========================================================
+         NOSOTROS (#nosotros) · LAYOUT CON FLEXBOX
+         Incluye una IMAGEN con atributo alt (multimedia + responsiva)
+         ======================================================== -->
+    <section id="nosotros" class="info-section section-spacing">
+      <h2 class="section-title">Sobre Nosotros</h2>
 
-        <div class="info-blocks">
-          <div class="info-card">
-            <h3>¿Qué hacemos?</h3>
-            <p>
-              Brindamos una página web en línea que ayuda a cualquier
-              institución a gestionar diversos deportes, siendo los principales:
-              Fútbol Varones, Básquet Varones, Vóley Damas y Ping Pong (Mixto).
-            </p>
-          </div>
-          <div class="info-card">
-            <h3>Nuestro Objetivo</h3>
-            <p>
-              Asegurar que los eventos deportivos mantengan niveles de calidad
-              que satisfagan sus expectativas, así como el cumplimiento de las
-              especificaciones pactadas para la prestación de nuestros
-              servicios.
-            </p>
-          </div>
-          <div class="info-card">
-            <h3>¿Cómo funciona?</h3>
-            <p>
-              Ofrecemos registro por categorías, asignación de países, sorteo
-              aleatorio de series y un control estadístico detallado de puntajes
-              y resultados de cada contienda y deporte.
-            </p>
-          </div>
+      <div class="info-blocks" style="margin-top: 1rem;">
+        <div class="info-card vision-mision">
+          <h2><i class="fa-solid fa-eye"></i> Nuestra Visión</h2>
+          <p>
+            Ser la <strong>mejor empresa de gestión de eventos deportivos del Perú</strong>,
+            dándole servicios de calidad a nuestros clientes.
+          </p>
         </div>
-      </section>
 
-      <!-- Nosotros Section -->
-      <section id="nosotros" class="info-section section-spacing">
-        <h2 class="section-title">Sobre Nosotros</h2>
-        <div class="info-blocks" style="margin-top: 1rem;">
-          <div class="info-card vision-mision">
-            <h2>Nuestra Visión</h2>
-            <p>
-              Ser la mejor empresa de gestión de eventos deportivos del Perú.
-              Dándole servicios de calidad a nuestros clientes.
-            </p>
-          </div>
+        <div class="info-card vision-mision">
+          <h2><i class="fa-solid fa-flag"></i> Nuestra Misión</h2>
+          <p>
+            Somos una empresa con más de 10 años en el mercado, entregando un
+            servicio de calidad en todos los niveles de atención a los
+            clientes, tanto corporativos como particulares.
+          </p>
+        </div>
+      </div>
 
-          <div class="info-card vision-mision">
-            <h2>Nuestra Misión</h2>
-            <p>
-              Somos una empresa con más de 10 años en el mercado, entregando un
-              servicio de calidad en todos los niveles de atención a los
-              clientes, tanto corporativos como particulares.
-            </p>
+      <!-- 2 CARTAS (LAYOUT CON FLEXBOX): video de YouTube + descripción del negocio -->
+      <div class="negocio-grid" style="margin-top: 1.5rem;">
+
+        <!-- Carta 1 · VIDEO EMBEBIDO de YouTube (responsivo 16:9) -->
+        <div class="info-card negocio-card">
+          <h2><i class="fa-brands fa-youtube"></i> El deporte en acción</h2>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video deportivo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
         </div>
 
-        <div class="info-card description" style="margin-top: 1.5rem;">
+        <!-- Carta 2 · Descripción del negocio (incluye IMAGEN con atributo alt) -->
+        <div class="info-card description negocio-card">
           <h2>Descripción del Negocio</h2>
+          <figure class="about-figure">
+            <img src="https://picsum.photos/id/1058/900/360" alt="Equipo de atletas en una competencia deportiva"
+              loading="lazy" />
+            <figcaption>Atletas durante una jornada de OlimpiaPeru.</figcaption>
+          </figure>
           <p>
             OlimpiaPeru ofrece los servicios de registro y gestión de un
             deporte en distintas categorías. Los participantes (instituciones)
@@ -100,146 +209,229 @@
             Luego, cada equipo inscribe los deportes en los cuales participará y
             lo mismo para la inscripción de sus participantes. Después de la
             inscripción, debe haber un sorteo aleatorio para definir las series
-            por cada deporte, permitiendo registrar la fecha y hora de la
-            contienda.
+            por cada deporte, permitiendo registrar la fecha y hora de la contienda.
           </p>
           <p>
             Finalmente, se podrán ver los resultados de cada contienda, llevando
             también un control estadístico de los puntos, goleadores,
-            encestadores, etc., que se realicen por deporte. Nuestra solución
-            está automatizada para que cualquier institución pueda organizar sus
-            olimpiadas internas de manera ágil y sencilla.
+            encestadores, etc., que se realicen por deporte.
           </p>
         </div>
-      </section>
-
-      <!-- Registro Section -->
-      <section id="registro" class="form-container section-spacing">
-        <h2>Inscripción de Deportistas</h2>
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="nombre">Nombres Completos:</label>
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              placeholder="Ej. Juan Pérez"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="codigo">Código de Alumno (UTP):</label>
-            <input
-              type="text"
-              id="codigo"
-              name="codigo"
-              placeholder="Ej. U20234567"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="correo">Correo Institucional:</label>
-            <input
-              type="email"
-              id="correo"
-              name="correo"
-              placeholder="ejemplo@utp.edu.pe"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="deporte">Deporte a Participar:</label>
-            <select id="deporte" name="deporte" required>
-              <option value="" disabled selected>
-                Selecciona una disciplina
-              </option>
-              <option value="futbol">Fútbol</option>
-              <option value="voley">Vóley</option>
-              <option value="basquet">Básquet</option>
-              <option value="atletismo">Atletismo</option>
-              <option value="ajedrez">Ajedrez</option>
-              <option value="natacion">Natación</option>
-            </select>
-          </div>
-
-          <button type="submit" class="submit-btn">Enviar Inscripción</button>
-        </form>
-      </section>
-
-      <!-- Posiciones Section -->
-      <section id="posiciones" class="table-container section-spacing">
-        <h2>Tabla de Posiciones - Fútbol Masculino</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Pos</th>
-              <th>Equipo (Facultad)</th>
-              <th>PJ</th>
-              <th>G</th>
-              <th>E</th>
-              <th>P</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ingeniería de Sistemas</td>
-              <td>5</td>
-              <td>4</td>
-              <td>1</td>
-              <td>0</td>
-              <td>13</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Administración de Empresas</td>
-              <td>5</td>
-              <td>3</td>
-              <td>1</td>
-              <td>1</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Arquitectura</td>
-              <td>5</td>
-              <td>2</td>
-              <td>2</td>
-              <td>1</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Derecho</td>
-              <td>5</td>
-              <td>1</td>
-              <td>1</td>
-              <td>3</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Psicología</td>
-              <td>5</td>
-              <td>0</td>
-              <td>1</td>
-              <td>4</td>
-              <td>1</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2026 Universidad Tecnológica del Perú - OlimpiaPeru.</p>
-        <p>Contacto: deportes@utp.edu.pe | Teléfono: (01) 315 9600</p>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- ========================================================
+         DISCIPLINAS (#disciplinas) · LAYOUT CON CSS GRID
+         ======================================================== -->
+    <section id="disciplinas" class="section-spacing">
+      <h2 class="section-title">Disciplinas Deportivas</h2>
+
+      <!-- === Contenedor CSS GRID === -->
+      <div class="grid-disciplinas">
+        <article class="sport-card">
+          <i class="fa-solid fa-futbol"></i>
+          <h3>Fútbol</h3>
+          <p>Varones · series por facultad.</p>
+        </article>
+        <article class="sport-card">
+          <i class="fa-solid fa-basketball"></i>
+          <h3>Básquet</h3>
+          <p>Varones · 5x5 olímpico.</p>
+        </article>
+        <article class="sport-card">
+          <i class="fa-solid fa-volleyball"></i>
+          <h3>Vóley</h3>
+          <p>Damas · categoría libre.</p>
+        </article>
+        <article class="sport-card">
+          <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+          <h3>Ping Pong</h3>
+          <p>Mixto · individual y dobles.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         REGISTRO (#registro)
+         FORMULARIO con action y method + todos los tipos de input
+         ======================================================== -->
+    <section id="registro" class="form-container section-spacing">
+      <h2>Inscripción de Deportistas</h2>
+      <!-- FORM: atributos action y method -->
+      <form action="#" method="POST">
+
+        <!-- INPUT TEXT -->
+        <div class="form-group">
+          <label for="nombre">Nombres Completos:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required />
+        </div>
+
+        <!-- INPUT TEXT (código UTP) -->
+        <div class="form-group">
+          <label for="codigo">Código de Alumno (UTP):</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ej. U20234567" required />
+        </div>
+
+        <!-- INPUT EMAIL -->
+        <div class="form-group">
+          <label for="correo">Correo Institucional:</label>
+          <input type="email" id="correo" name="correo" placeholder="ejemplo@utp.edu.pe" required />
+        </div>
+
+        <!-- INPUT PASSWORD -->
+        <div class="form-group">
+          <label for="clave">Contraseña de acceso:</label>
+          <input type="password" id="clave" name="clave" placeholder="••••••••" />
+        </div>
+
+        <!-- INPUT RADIO -->
+        <fieldset class="form-group">
+          <legend>Categoría:</legend>
+          <label class="inline"><input type="radio" name="categoria" value="varones" /> Varones</label>
+          <label class="inline"><input type="radio" name="categoria" value="damas" /> Damas</label>
+          <label class="inline"><input type="radio" name="categoria" value="mixto" /> Mixto</label>
+        </fieldset>
+
+        <!-- SELECT (lista desplegable) -->
+        <div class="form-group">
+          <label for="deporte">Deporte a Participar:</label>
+          <select id="deporte" name="deporte" required>
+            <option value="" disabled selected>Selecciona una disciplina</option>
+            <option value="futbol">Fútbol</option>
+            <option value="voley">Vóley</option>
+            <option value="basquet">Básquet</option>
+            <option value="pingpong">Ping Pong</option>
+          </select>
+        </div>
+
+        <!-- INPUT CHECKBOX -->
+        <fieldset class="form-group">
+          <legend>Documentos que adjuntas:</legend>
+          <label class="inline"><input type="checkbox" name="docs" value="dni" /> Copia de DNI</label>
+          <label class="inline"><input type="checkbox" name="docs" value="ficha" /> Ficha médica</label>
+        </fieldset>
+
+        <!-- TEXTAREA -->
+        <div class="form-group">
+          <label for="comentario">Comentarios adicionales:</label>
+          <textarea id="comentario" name="comentario" rows="4" placeholder="Cuéntanos algo más..."></textarea>
+        </div>
+
+        <!-- CHECKBOX de aceptación -->
+        <div class="form-group">
+          <label class="inline"><input type="checkbox" name="terminos" required /> Acepto los términos y
+            condiciones.</label>
+        </div>
+
+        <!-- BOTÓN SUBMIT -->
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Enviar Inscripción
+        </button>
+      </form>
+    </section>
+
+    <!-- ========================================================
+         POSICIONES (#posiciones)
+         TABLA con thead, tbody, tfoot + colspan/rowspan
+         (bordes y filas alternadas definidos en CSS)
+         ======================================================== -->
+    <section id="posiciones" class="table-container section-spacing">
+      <h2>Tabla de Posiciones - Fútbol Masculino</h2>
+      <table>
+        <!-- Encabezado de la tabla -->
+        <thead>
+          <tr>
+            <!-- colspan: agrupa varias columnas bajo un título -->
+            <th rowspan="2">Pos</th>
+            <th rowspan="2">Equipo (Facultad)</th>
+            <th colspan="4">Partidos</th>
+            <th rowspan="2">Pts</th>
+          </tr>
+          <tr>
+            <th>PJ</th>
+            <th>G</th>
+            <th>E</th>
+            <th>P</th>
+          </tr>
+        </thead>
+
+        <!-- Cuerpo de la tabla -->
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ingeniería de Sistemas</td>
+            <td>5</td><td>4</td><td>1</td><td>0</td><td>13</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Administración de Empresas</td>
+            <td>5</td><td>3</td><td>1</td><td>1</td><td>10</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Arquitectura</td>
+            <td>5</td><td>2</td><td>2</td><td>1</td><td>8</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Derecho</td>
+            <td>5</td><td>1</td><td>1</td><td>3</td><td>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Psicología</td>
+            <td>5</td><td>0</td><td>1</td><td>4</td><td>1</td>
+          </tr>
+        </tbody>
+
+        <!-- Pie de la tabla -->
+        <tfoot>
+          <tr>
+            <!-- colspan: la celda abarca todas las columnas -->
+            <td colspan="7">Última actualización: <strong>fecha 5 · jornada finalizada</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- ========================================================
+         MULTIMEDIA (#multimedia) · AUDIO
+         ======================================================== -->
+    <section id="multimedia" class="section-spacing">
+      <h2 class="section-title">Multimedia</h2>
+
+      <div class="media-blocks">
+        <!-- AUDIO con controles -->
+        <div class="media-card">
+          <h3><i class="fa-solid fa-music"></i> Himno deportivo</h3>
+          <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+          <p>Escucha el himno oficial de las olimpiadas.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       ESTRUCTURA DE PÁGINA · FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Universidad Tecnológica del Perú - OlimpiaPeru.</p>
+      <p>Contacto: deportes@utp.edu.pe | Teléfono: (01) 315 9600</p>
+      <!-- Íconos sociales (Font Awesome) + enlaces -->
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#top" aria-label="Volver arriba"><i class="fa-solid fa-circle-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: lógica del slider (autoplay + flechas + puntos) -->
+  <script src="script.js"></script>
+</body>
+
 </html>
