@@ -1,0 +1,78 @@
+/* base.css · variables, reset, estilos globales y utilidades */
+
+/* Google Fonts importada por CSS */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* Variables CSS (custom properties) */
+:root {
+  --primary-color: #d50032;   /* Rojo UTP */
+  --primary-dark: #b3002a;
+  --secondary-color: #333333;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --white: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* Reset (selector universal) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;      /* compensa el header sticky */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;            /* evita scroll horizontal por el slider full-bleed */
+}
+
+/* Imágenes responsivas (regla global) */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Animación con @keyframes (texto del hero) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.section-spacing {
+  margin-bottom: 5rem !important;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}

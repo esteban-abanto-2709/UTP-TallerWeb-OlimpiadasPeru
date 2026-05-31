@@ -1,0 +1,39 @@
+/* disciplinas.css · grilla de disciplinas (CSS Grid) */
+
+.grid-disciplinas {
+  display: grid;                   /* CSS GRID */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sport-card {
+  background: var(--white);
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.sport-card:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.sport-card i {
+  font-size: 2.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+.sport-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.3rem;
+}
+
+.sport-card p {
+  color: #777;
+  font-size: 0.9rem;
+}
