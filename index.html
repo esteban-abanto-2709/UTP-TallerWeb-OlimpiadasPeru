@@ -37,11 +37,13 @@
         Olimpia<span>Peru</span>
       </a>
 
-      <!-- Menú hamburguesa: checkbox + label, sin JavaScript -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+      <!-- Menú hamburguesa: botón controlado por JS (js/menu.js) -->
+      <button type="button" id="menu-btn" class="menu-icon" aria-label="Abrir menú"
+        aria-expanded="false" aria-controls="nav-principal">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-      <nav aria-label="Navegación principal">
+      <nav id="nav-principal" aria-label="Navegación principal">
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
@@ -353,6 +355,7 @@
   </div>
 
   <!-- JS externo dividido por funcionalidad (espeja la estructura de css/) -->
+  <script src="js/menu.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/himno.js"></script>
   <script src="js/formulario.js"></script>

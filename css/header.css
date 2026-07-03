@@ -56,8 +56,9 @@ nav a.active {
   box-shadow: 0 4px 8px rgba(213, 0, 50, 0.3);
 }
 
-/* Hamburguesa: oculta en escritorio */
-.menu-toggle,
+/* Hamburguesa: oculta en escritorio (botón sin estilos por defecto) */
 .menu-icon {
   display: none;
+  background: none;
+  border: none;
 }

@@ -12,6 +12,9 @@ Resumen en ≤2 líneas de lo que se hizo.
 
 ---
 
+## [RM-005] Menú responsivo controlado por JavaScript (2026-07-03 13:27)
+Hamburguesa migrada de checkbox+label (CSS puro) a `<button>` + `js/menu.js`: `classList.toggle("open")`, ícono ☰/✕, `aria-expanded`, y cierre al elegir opción. Corregido un `transition: max-height` mal formado en `responsive.css`.
+
 ## [RM-003] Sorteo automático de series + ventana flotante (2026-07-03 13:16)
 `js/sorteo.js`: lee equipos del DOM, pide nº de series con `prompt`, confirma con `confirm`, mezcla (Fisher-Yates) y reparte round-robin; valida bordes con `alert`. Resultado en modal (`css/modal.css`) que cierra con botón, click-fuera o Escape.
 

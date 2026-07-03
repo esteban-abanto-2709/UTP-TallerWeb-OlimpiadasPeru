@@ -32,7 +32,7 @@
     flex-basis: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition);
+    transition: max-height 0.3s ease;
   }
 
   nav ul {
@@ -42,8 +42,8 @@
     padding-top: 1rem;
   }
 
-  /* El checkbox marcado despliega el menú (sin JS) */
-  .menu-toggle:checked ~ nav {
+  /* La clase .open (añadida por JS) despliega el menú */
+  nav.open {
     max-height: 400px;
   }
 
