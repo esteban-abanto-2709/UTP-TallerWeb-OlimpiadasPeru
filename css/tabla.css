@@ -57,3 +57,49 @@ tfoot td {
   text-align: center;
   font-weight: 500;
 }
+
+/* Controles de la tabla (gestión con JS) */
+.tabla-controles {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.control-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-grupo label {
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.control-grupo select,
+.control-grupo input {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #fafafa;
+}
+
+.control-grupo button {
+  padding: 0.55rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.control-grupo button:hover {
+  background-color: var(--primary-dark);
+}

@@ -286,40 +286,31 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Ingeniería de Sistemas</td>
-            <td>5</td><td>4</td><td>1</td><td>0</td><td>13</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Administración de Empresas</td>
-            <td>5</td><td>3</td><td>1</td><td>1</td><td>10</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Arquitectura</td>
-            <td>5</td><td>2</td><td>2</td><td>1</td><td>8</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Derecho</td>
-            <td>5</td><td>1</td><td>1</td><td>3</td><td>4</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Psicología</td>
-            <td>5</td><td>0</td><td>1</td><td>4</td><td>1</td>
-          </tr>
-        </tbody>
+        <!-- Filas generadas por JS desde un arreglo de equipos -->
+        <tbody id="tabla-body"></tbody>
 
         <tfoot>
           <tr>
-            <td colspan="7">Última actualización: <strong>fecha 5 · jornada finalizada</strong></td>
+            <td colspan="7" id="tabla-pie">—</td>
           </tr>
         </tfoot>
       </table>
+
+      <!-- Controles: gestionan la tabla con JS (registrar resultado / agregar equipo) -->
+      <div class="tabla-controles">
+        <div class="control-grupo">
+          <label for="equipo-sel">Registrar resultado:</label>
+          <select id="equipo-sel"></select>
+          <button type="button" class="btn-res" data-res="g">Ganó</button>
+          <button type="button" class="btn-res" data-res="e">Empató</button>
+          <button type="button" class="btn-res" data-res="p">Perdió</button>
+        </div>
+        <div class="control-grupo">
+          <label for="equipo-nuevo">Agregar equipo:</label>
+          <input type="text" id="equipo-nuevo" placeholder="Ej. Ingeniería Civil" />
+          <button type="button" id="btn-agregar">Agregar</button>
+        </div>
+      </div>
     </section>
 
   </main>

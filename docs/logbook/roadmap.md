@@ -10,11 +10,6 @@ Al terminar una tarea se mueve al changelog y se borra de aquí.
 
 ---
 
-## [RM-002] Tabla de posiciones dinámica
-- **Objetivo:** Convertir la tabla estática en una gestionada por JS: los equipos viven en un arreglo, se renderizan al DOM, se puede agregar/actualizar un resultado y la tabla se reordena por puntos con `sort()`. Demuestra arreglos + manipulación del DOM.
-- **Hecho cuando:** se pueden agregar/actualizar equipos desde la interfaz y la tabla se reordena sola por puntos; los datos salen de un arreglo JS, no de HTML fijo.
-- **Fecha:** 2026-07-03 · **Estado:** Abierto
-
 ## [RM-003] Sorteo automático de series + ventana flotante
 - **Objetivo:** Implementar el "sorteo automático" que promete la presentación: función JS que reparte al azar los equipos inscritos en series/llaves y lo muestra en un modal usando `confirm`/`alert`. Feature estrella que alinea la entrega con el PPT.
 - **Hecho cuando:** un botón dispara el sorteo, reparte los equipos aleatoriamente y muestra el resultado en una ventana flotante; funciona en el navegador.
