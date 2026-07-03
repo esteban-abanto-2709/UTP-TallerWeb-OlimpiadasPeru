@@ -10,11 +10,6 @@ Al terminar una tarea se mueve al changelog y se borra de aquí.
 
 ---
 
-## [RM-001] Validación del formulario con JavaScript
-- **Objetivo:** Que el formulario de inscripción valide en el cliente con JS: campos requeridos, formato de correo `@utp.edu.pe`, contraseña mínima y términos aceptados; mostrar errores inline y confirmación de éxito en el DOM sin recargar. Es lo que más pesa: cubre el logro de la Unidad 3 (DOM, eventos, control de flujo).
-- **Hecho cuando:** al enviar, JS bloquea el submit si hay errores, marca cada campo inválido con su mensaje y muestra confirmación al pasar; verificado en el navegador.
-- **Fecha:** 2026-07-03 · **Estado:** Abierto
-
 ## [RM-002] Tabla de posiciones dinámica
 - **Objetivo:** Convertir la tabla estática en una gestionada por JS: los equipos viven en un arreglo, se renderizan al DOM, se puede agregar/actualizar un resultado y la tabla se reordena por puntos con `sort()`. Demuestra arreglos + manipulación del DOM.
 - **Hecho cuando:** se pueden agregar/actualizar equipos desde la interfaz y la tabla se reordena sola por puntos; los datos salen de un arreglo JS, no de HTML fijo.
