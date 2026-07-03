@@ -12,6 +12,9 @@ Resumen en ≤2 líneas de lo que se hizo.
 
 ---
 
+## [RM-006] Separar script.js por funcionalidad (2026-07-03 13:08)
+`script.js` monolítico → `js/slider.js`, `js/himno.js`, `js/formulario.js`, `js/tabla.js` (espeja la estructura de `css/`). Cuatro `<script>` planos en `index.html`, sin bundler ni módulos.
+
 ## [RM-002] Tabla de posiciones dinámica (2026-07-03 13:02)
 Los equipos pasan a un arreglo JS; `render()` ordena con `sort()` por puntos (`g*3+e`) y pinta el DOM. Controles para registrar resultado (Ganó/Empató/Perdió) y agregar equipo, con re-render y renumeración automática.
 

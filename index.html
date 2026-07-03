@@ -54,7 +54,7 @@
 
   <main>
 
-    <!-- INICIO · SLIDER: autoplay + flechas + puntos (lógica en script.js) -->
+    <!-- INICIO · SLIDER: autoplay + flechas + puntos (lógica en js/slider.js) -->
     <section id="inicio" class="hero section-spacing">
       <div class="slider" id="slider">
         <!-- Pista de slides: se desplaza con transform desde JS -->
@@ -337,7 +337,11 @@
     Tu navegador no soporta el elemento de audio.
   </audio>
 
-  <script src="script.js"></script>
+  <!-- JS externo dividido por funcionalidad (espeja la estructura de css/) -->
+  <script src="js/slider.js"></script>
+  <script src="js/himno.js"></script>
+  <script src="js/formulario.js"></script>
+  <script src="js/tabla.js"></script>
 </body>
 
 </html>
