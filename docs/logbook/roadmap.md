@@ -10,11 +10,6 @@ Al terminar una tarea se mueve al changelog y se borra de aquí.
 
 ---
 
-## [RM-003] Sorteo automático de series + ventana flotante
-- **Objetivo:** Implementar el "sorteo automático" que promete la presentación: función JS que reparte al azar los equipos inscritos en series/llaves y lo muestra en un modal usando `confirm`/`alert`. Feature estrella que alinea la entrega con el PPT.
-- **Hecho cuando:** un botón dispara el sorteo, reparte los equipos aleatoriamente y muestra el resultado en una ventana flotante; funciona en el navegador.
-- **Fecha:** 2026-07-03 · **Estado:** Abierto
-
 ## [RM-005] Menú responsivo controlado por JavaScript
 - **Objetivo:** La semana 14 pide "menú responsivo con HTML, CSS **y JS**", pero el menú actual (`index.html:40-41`) es CSS puro (checkbox + label). Manejar la apertura/cierre del hamburguesa con JS (`classList.toggle` al hacer click, cerrar al elegir una opción). Cubre explícitamente el tema de S14.
 - **Hecho cuando:** el menú abre/cierra por un evento JS (no solo por el checkbox), verificado en móvil/DevTools.

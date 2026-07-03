@@ -1,0 +1,69 @@
+/* modal.css · ventana flotante (overlay) para el sorteo de series */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+/* El atributo hidden debe ganarle al display:flex */
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+}
+
+.modal h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.serie {
+  margin-bottom: 1.2rem;
+}
+
+.serie h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.serie ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.serie li {
+  padding: 0.4rem 0.7rem;
+  background-color: var(--bg-color);
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+}

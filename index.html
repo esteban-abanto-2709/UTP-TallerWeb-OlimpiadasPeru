@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/disciplinas.css" />
   <link rel="stylesheet" href="css/formulario.css" />
   <link rel="stylesheet" href="css/tabla.css" />
+  <link rel="stylesheet" href="css/modal.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
@@ -310,6 +311,11 @@
           <input type="text" id="equipo-nuevo" placeholder="Ej. Ingeniería Civil" />
           <button type="button" id="btn-agregar">Agregar</button>
         </div>
+
+        <div class="control-grupo">
+          <label>Sorteo de series:</label>
+          <button type="button" id="btn-sorteo"><i class="fa-solid fa-shuffle"></i> Sortear series</button>
+        </div>
       </div>
     </section>
 
@@ -337,11 +343,21 @@
     Tu navegador no soporta el elemento de audio.
   </audio>
 
+  <!-- MODAL · resultado del sorteo de series (ventana flotante controlada por JS) -->
+  <div id="modal-sorteo" class="modal-overlay" hidden>
+    <div class="modal">
+      <button type="button" class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar">&times;</button>
+      <h2><i class="fa-solid fa-shuffle"></i> Sorteo de Series</h2>
+      <div id="sorteo-resultado"></div>
+    </div>
+  </div>
+
   <!-- JS externo dividido por funcionalidad (espeja la estructura de css/) -->
   <script src="js/slider.js"></script>
   <script src="js/himno.js"></script>
   <script src="js/formulario.js"></script>
   <script src="js/tabla.js"></script>
+  <script src="js/sorteo.js"></script>
 </body>
 
 </html>

@@ -12,6 +12,9 @@ Resumen en ≤2 líneas de lo que se hizo.
 
 ---
 
+## [RM-003] Sorteo automático de series + ventana flotante (2026-07-03 13:16)
+`js/sorteo.js`: lee equipos del DOM, pide nº de series con `prompt`, confirma con `confirm`, mezcla (Fisher-Yates) y reparte round-robin; valida bordes con `alert`. Resultado en modal (`css/modal.css`) que cierra con botón, click-fuera o Escape.
+
 ## [RM-006] Separar script.js por funcionalidad (2026-07-03 13:08)
 `script.js` monolítico → `js/slider.js`, `js/himno.js`, `js/formulario.js`, `js/tabla.js` (espeja la estructura de `css/`). Cuatro `<script>` planos en `index.html`, sin bundler ni módulos.
 
