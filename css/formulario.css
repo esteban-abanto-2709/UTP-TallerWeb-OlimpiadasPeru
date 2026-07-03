@@ -1,19 +1,20 @@
 /* formulario.css · formulario de inscripción */
 
 .form-container {
-  background-color: var(--white);
+  background: var(--panel);
   padding: 3rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--primary-color);
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 .form-container h2 {
-  color: var(--primary-color);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  text-transform: uppercase;
+  color: var(--ink);
   margin-bottom: 2rem;
-  text-align: center;
-  font-size: 2rem;
 }
 
 .form-group {
@@ -27,8 +28,8 @@
 .form-group legend {
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
-  font-size: 0.95rem;
+  color: var(--ink);
+  font-size: 0.9rem;
 }
 
 .form-group input[type="text"],
@@ -37,13 +38,14 @@
 .form-group select,
 .form-group textarea {
   padding: 0.85rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
   font-family: inherit;
   font-size: 1rem;
   transition: var(--transition);
-  background-color: #fafafa;
+  background: var(--paper);
   width: 100%;
+  color: var(--ink);
 }
 
 /* Pseudoclase :focus */
@@ -52,7 +54,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  background-color: var(--white);
+  background: var(--white);
   box-shadow: 0 0 0 3px rgba(213, 0, 50, 0.15);
 }
 
@@ -72,13 +74,14 @@
 }
 
 .submit-btn {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   color: var(--white);
   border: none;
   padding: 1rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  border-radius: 4px;
+  font-family: var(--body);
+  font-size: 1.05rem;
+  font-weight: 700;
   cursor: pointer;
   width: 100%;
   margin-top: 1rem;
@@ -86,9 +89,8 @@
 }
 
 .submit-btn:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(213, 0, 50, 0.3);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .submit-btn:active {
@@ -105,14 +107,14 @@
 .form-group .invalid,
 .form-group .invalid:focus {
   border-color: var(--primary-color);
-  background-color: #fff5f6;
+  background: #fff5f6;
 }
 
 .form-success {
   margin-top: 1rem;
   padding: 0.85rem 1rem;
-  border-radius: 8px;
-  background-color: #e6f7ec;
+  border-radius: 4px;
+  background: #e6f7ec;
   color: #1a7f4b;
   font-weight: 600;
   text-align: center;

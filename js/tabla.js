@@ -29,8 +29,10 @@
     tbody.innerHTML = "";
     equipos.forEach(function (t, i) {
       const fila = document.createElement("tr");
+      if (i < 3) fila.className = "g" + (i + 1);           // top-3 medallado
+      const medalla = i < 3 ? ' <i class="fa-solid fa-medal"></i>' : "";
       fila.innerHTML =
-        "<td>" + (i + 1) + "</td>" +
+        "<td>" + (i + 1) + medalla + "</td>" +
         "<td>" + t.nombre + "</td>" +
         "<td>" + jugados(t) + "</td>" +
         "<td>" + t.g + "</td>" +

@@ -29,7 +29,15 @@
 
 <body>
 
-  <!-- HEADER + NAV: navegación por anclas + menú hamburguesa (CSS puro) -->
+  <!-- TICKER: cintillo superior estilo transmisión deportiva -->
+  <div class="ticker">
+    <span>Fútbol · Jornada 5 finalizada</span>
+    <span>Inscripciones abiertas</span>
+    <span>Sorteo de series este viernes</span>
+    <span>5 facultades en competencia</span>
+  </div>
+
+  <!-- HEADER + NAV: navegación por anclas + menú hamburguesa (botón por JS) -->
   <header id="top">
     <div class="nav-container">
       <a href="#inicio" class="logo">
@@ -45,7 +53,6 @@
 
       <nav id="nav-principal" aria-label="Navegación principal">
         <ul>
-          <li><a href="#inicio" class="active">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#disciplinas">Disciplinas</a></li>
           <li><a href="#registro">Registro</a></li>
@@ -137,6 +144,7 @@
 
     <!-- NOSOTROS · 2 cards (Visión / Misión) en FLEXBOX: texto a un lado, multimedia 16:9 al otro -->
     <section id="nosotros" class="info-section section-spacing">
+      <span class="eyebrow">La organización</span>
       <h2 class="section-title">Sobre Nosotros</h2>
 
       <div class="nosotros-cards">
@@ -175,6 +183,7 @@
 
     <!-- DISCIPLINAS · LAYOUT CON CSS GRID -->
     <section id="disciplinas" class="section-spacing">
+      <span class="eyebrow">El torneo</span>
       <h2 class="section-title">Disciplinas Deportivas</h2>
 
       <div class="grid-disciplinas">
@@ -203,6 +212,7 @@
 
     <!-- REGISTRO · FORM (action/method) con todos los tipos de input -->
     <section id="registro" class="form-container section-spacing">
+      <span class="eyebrow">Registro</span>
       <h2>Inscripción de Deportistas</h2>
       <form id="form-inscripcion" action="#" method="POST" novalidate>
 
@@ -272,6 +282,7 @@
 
     <!-- POSICIONES · TABLA con thead, tbody, tfoot + colspan/rowspan -->
     <section id="posiciones" class="table-container section-spacing">
+      <span class="eyebrow" style="color: var(--gold)">En vivo</span>
       <h2>Tabla de Posiciones - Fútbol Masculino</h2>
       <table>
         <thead>
@@ -356,6 +367,7 @@
 
   <!-- JS externo dividido por funcionalidad (espeja la estructura de css/) -->
   <script src="js/menu.js"></script>
+  <script src="js/scrollspy.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/himno.js"></script>
   <script src="js/formulario.js"></script>

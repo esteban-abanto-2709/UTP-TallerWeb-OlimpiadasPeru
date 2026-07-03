@@ -1,19 +1,35 @@
-/* base.css · variables, reset, estilos globales y utilidades */
+/* base.css · variables (dirección "Torneo"), reset, tipografía y utilidades */
 
-/* Google Fonts importada por CSS */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
 
-/* Variables CSS (custom properties) */
 :root {
-  --primary-color: #d50032;   /* Rojo UTP */
-  --primary-dark: #b3002a;
-  --secondary-color: #333333;
-  --bg-color: #f8f9fa;
-  --text-color: #212529;
+  /* Paleta */
+  --ink: #16130f;
+  --ink-soft: #241f1a;
+  --paper: #fbfaf7;
+  --panel: #ffffff;
+  --line: #e2e0d9;
+  --primary-color: #d50032;   /* rojo UTP */
+  --primary-dark: #a80028;
+  --gold: #e8b04b;
+  --silver: #b8bcc2;
+  --bronze: #c67b4a;
+  --muted: #6b6660;
+
+  /* Alias de nombres previos */
+  --secondary-color: #16130f;
+  --bg-color: #fbfaf7;
+  --text-color: #16130f;
   --white: #ffffff;
-  --border-radius: 12px;
-  --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;
+
+  /* Tipografía */
+  --display: "Archivo", sans-serif;
+  --body: "Hanken Grotesk", sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+
+  --border-radius: 6px;
+  --box-shadow: 0 10px 30px rgba(22, 19, 15, 0.1);
+  --transition: all 0.25s ease;
 }
 
 /* Reset (selector universal) */
@@ -25,18 +41,28 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;      /* compensa el header sticky */
+  scroll-padding-top: 90px;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--bg-color);
+  font-family: var(--body);
+  background: var(--paper);
   color: var(--text-color);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;            /* evita scroll horizontal por el slider full-bleed */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--display);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 /* Imágenes responsivas (regla global) */
@@ -45,7 +71,13 @@ img {
   display: block;
 }
 
-/* Animación con @keyframes (texto del hero) */
+/* Foco visible (accesibilidad) */
+:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Animación con @keyframes (entrada de contenido) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -60,19 +92,31 @@ img {
 /* ===== CONTENIDO PRINCIPAL ===== */
 main {
   flex: 1;
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 3rem auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   width: 100%;
 }
 
 .section-spacing {
-  margin-bottom: 5rem !important;
+  margin-bottom: 5rem;
+}
+
+/* Etiqueta mono tipo "eyebrow" */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.6rem;
 }
 
 .section-title {
-  text-align: center;
-  color: var(--primary-color);
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
 }

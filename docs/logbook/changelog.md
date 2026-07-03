@@ -12,6 +12,12 @@ Resumen en ≤2 líneas de lo que se hizo.
 
 ---
 
+## [RM-008] Scrollspy en el nav + logo como botón de inicio (2026-07-03 14:03)
+`js/scrollspy.js` con IntersectionObserver resalta la sección visible al hacer scroll (antes `active` estaba fijo en Inicio). Se quitó "Inicio" del nav; el logo cumple la función de volver arriba.
+
+## [RM-007] Rediseño de UI "Torneo" (deportivo-broadcast) (2026-07-03 14:03)
+Nueva dirección visual: tokens tinta/papel/rojo/oro y fuentes Archivo + Hanken Grotesk + IBM Plex Mono en `base.css`; reescritura del CSS por sección; ticker, header oscuro, hero editorial, disciplinas/nosotros/form en paneles de línea fina, y la firma: marcador oscuro con top-3 medallado (oro/plata/bronce vía `tabla.js`).
+
 ## [RM-005] Menú responsivo controlado por JavaScript (2026-07-03 13:27)
 Hamburguesa migrada de checkbox+label (CSS puro) a `<button>` + `js/menu.js`: `classList.toggle("open")`, ícono ☰/✕, `aria-expanded`, y cierre al elegir opción. Corregido un `transition: max-height` mal formado en `responsive.css`.
 
