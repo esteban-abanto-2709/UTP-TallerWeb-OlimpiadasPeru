@@ -12,10 +12,3 @@ changelog y se borra de aquí.
 - **Fecha** y **Estado** (Abierto / En progreso).
 
 ---
-
-## [TD-001] Contenido con placeholders
-- **Ubicación:** `index.html:159` (imagen `picsum.photos`), `index.html:345` (audio `soundhelix`), `index.html:164-167` (texto genérico "empresa con más de 10 años").
-- **Riesgo:** 3/10
-- **Problema:** Recursos y textos de relleno que no son del proyecto: imagen aleatoria, MP3 de demo y copy plantilla.
-- **Impacto futuro:** La entrega se lee como inacabada; resta puntos de prolijidad frente al docente.
-- **Fecha:** 2026-07-03 · **Estado:** Abierto

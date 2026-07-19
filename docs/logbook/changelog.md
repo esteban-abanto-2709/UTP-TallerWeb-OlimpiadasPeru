@@ -12,6 +12,9 @@ Resumen en ≤2 líneas de lo que se hizo.
 
 ---
 
+## [TD-001] Contenido con placeholders (2026-07-19 09:01)
+Imagen `picsum.photos` → `assets/img/equipo.jpg`; textos de visión/misión reescritos para las olimpiadas UTP (antes copy de "empresa"); MP3 externo de SoundHelix → `assets/audio/himno.wav` local (fanfarria generada), la demo ya no depende de internet para el himno.
+
 ## [RM-008] Scrollspy en el nav + logo como botón de inicio (2026-07-03 14:03)
 `js/scrollspy.js` con IntersectionObserver resalta la sección visible al hacer scroll (antes `active` estaba fijo en Inicio). Se quitó "Inicio" del nav; el logo cumple la función de volver arriba.
 
